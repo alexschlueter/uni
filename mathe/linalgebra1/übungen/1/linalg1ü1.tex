@@ -1,0 +1,218 @@
+\documentclass[a4paper,11pt,parskip=half,fleqn]{scrartcl}
+
+\usepackage[ngerman]{babel}         % Neue deutsche Rechtschreibung
+\usepackage[T1]{fontenc}            % Bessere Schriftdarstellung
+\usepackage{lmodern}                % Aktuelle Schrift
+
+
+\usepackage[utf8]{inputenc}                      %Linux
+
+%\usepackage{mathptmx}
+\usepackage[intlimits, fleqn]{amsmath}     % Zusaetzliche Matheumgebungen
+\usepackage{amssymb}                % Mathematische Symbole
+\usepackage{amsthm}
+\usepackage{siunitx}
+\usepackage{graphicx}               % notwendig fuer \includegraphics
+\usepackage{fancyhdr}               % Kopf- und Fusszeile
+\usepackage{lastpage}               % erzeugt Referez zu der letzten Seite
+\usepackage{moreverb}               % verbatimtab Umgeung
+%\usepackage{enumitem}
+\usepackage{framed, xcolor, color} 
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{wallpaper}
+\usepackage{booktabs,tabularx,rotating}
+\usepackage{nicefrac,units}
+\usepackage[normalem]{ulem} %unterstreichungen 
+\usepackage{paralist}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{paralist}
+\usepackage{pgfplots}
+
+\DeclareSIUnit\annum{a}
+\newcommand{\wrt}[1]{\mathrm{d}{#1}}
+\newcommand{\diff}[1]{\frac{\mathrm{d}}{\wrt{#1}}}
+\newcommand{\difff}[2]{\frac{\wrt{#1}}{\wrt{#2}}}
+\newcommand*\colvec[3][]{
+    \begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}
+}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+% Seiteneinstelungen
+\setlength\textwidth{165mm}           % Breite
+\setlength\textheight{235mm}          % Hoehe
+\setlength\headheight{41pt}           % Hoehe der Kopfzeile
+\setlength\topmargin{-12mm}           % Abstand oben
+\setlength\oddsidemargin{0mm}         % Linker Rand
+%\setlength\parindent{0pt}             % und ohne Einrueckung
+%\setlength\parskip{1.7\medskipamount} % Absaetze abgesetzt
+\sloppy\pagestyle{fancy}
+
+%Kopf- und Fusszeileeinstellungen
+\renewcommand{\headrulewidth}{0.4pt} 	%obere Trennlinie
+%\fancyfoot[C]{Seite:~\thepage~von~\pageref{LastPage}} %Seitennummer
+\fancyfoot[C]{}
+%\renewcommand{\footrulewidth}{0.4pt} 	%untere Trennlinie
+
+\fancyhead[C]{\bf{Übung 1\\}}
+\fancyhead[L]{Lineare Algebra 1\\ Alexander Schlüter}
+\fancyhead[R]{\today \\ Seite \thepage}
+
+\newcommand{\Aufgabe}[2][]{{\vskip0cm \sffamily {\Large \bfseries Aufgabe #2: #1} \par}}
+
+\usepackage{xcolor}
+\usepackage{framed}
+
+\definecolor{pink}{cmyk}{0.38,0.87,0,0}
+\definecolor{darkgreen}{cmyk}{0.86,0.2,1.0,0.07}
+\definecolor{headercolor}{HTML}{2867A4}
+\definecolor{shadecolor}{HTML}{D6DEE9}
+\lstset{basicstyle={\ttfamily},
+frame=single,
+framerule=0.4pt,
+breaklines=true,
+commentstyle={\color{darkgreen}},
+extendedchars=true,
+keywordstyle={\bfseries\color{pink}},
+language={C++},
+numbers=left,
+numberstyle={\color{gray}},
+stringstyle={\color{red}},
+showstringspaces=false,
+tabsize=4,
+numberbychapter=false}
+
+\newtheoremstyle{note}% ⟨name⟩
+{18pt}%	⟨Space above⟩ 
+{9pt}%	⟨Space below⟩ 
+{}%	⟨Body font⟩
+{}%	⟨Indent amount⟩1 
+{\bfseries}% ⟨Theorem head font⟩ 
+{}%	⟨Punctuation after theorem head⟩ 
+{0.5em}%	⟨Space after theorem head⟩2 
+{}%	⟨Theorem head spec (can be left empty, meaning ‘normal’)⟩
+\theoremstyle{note}
+\newtheorem*{definition}{Definition}
+\newtheorem*{bemerkung}{Bemerkung}
+\newtheorem*{satz}{Satz}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{axiom}{Axiom}
+\newtheorem*{beispiele}{Beispiele}
+\newtheorem*{beispiel}{Beispiel}
+\newtheorem{aufgabe}{Aufgabe}
+\newtheorem*{leer}{}
+
+%\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+
+\newcommand{\Num}[1]{\text{Num}_#1}
+\newcommand{\Bin}{\text{Bin}}
+\newcommand{\Oct}{\text{Oct}}
+\newcommand{\Hex}{\text{Hex}}
+\newcommand{\id}{\text{id}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\iu}{\text{i}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+\begin{document}
+\begin{aufgabe}
+  \begin{enumerate}
+    \item $x\in A\cap (B\cup C)\iff x\in A\land (x\in B\lor x\in C)\iff (x\in A\land x\in B)\lor (x\in A\land x\in C)\iff x\in (A\cap B)\cup (A\cap C)$
+    \item $x\in A\cup (B\cap C)\iff x\in A\lor (x\in B\land x\in C)\iff (x\in A\lor x\in B)\land (x\in A\lor x\in C)\iff x\in (A\cup B)\cap (A\cup C)$
+    \item $x\in A-(B\cup C)\iff x\in A\land \neg (x\in B\lor x\in C)\iff x\in A\land (x\not\in B\land x\not\in C)\iff
+      (x\in A\land x\not\in B)\land (x\in A\land x\not\in C)\iff x\in (A-B)\cup (A-C)$
+    \item $x\in A-(B\cap C)\iff x\in A\land \neg (x\in B\land x\in C)\iff x\in A\land (x\not\in B\lor x\not\in C)\iff
+      (x\in A\land x\not\in B)\lor (x\in A\land x\not\in C)\iff x\in (A-B)\cup (A-C)$
+  \end{enumerate}
+\end{aufgabe}
+\begin{aufgabe}
+  Die Äquivalenz aller Aussagen mit $x\in B\lor x\not\in A$ wird gezeigt:
+  \begin{enumerate}
+    \item
+      \begin{align*}
+	&A\subseteq B \\
+	\iff& (x\in A\implies x\in B) \\
+	\iff& x\in B\lor x\not\in A
+      \end{align*}
+    \item
+      \begin{align*}
+	&A\cap B=A \\
+	\iff& (x\in A\land x\in B\iff x\in A) \\
+	\iff& (x\in A\land x\in B\land x\in A)\lor ((x\not\in A\lor x\not\in B)\land x\not\in A) \\
+	\iff& (x\in A\land x\in B)\lor ((x\not\in A\lor x\not\in B)\land x\not\in A) \\
+	\iff& (x\in A\land x\in B)\lor x\not\in A \\
+	\iff& (x\in A\lor x\not\in A)\land (x\in B\lor x\not\in A) \\
+	\iff& x\in B\lor x\not\in A
+      \end{align*}
+    \item
+      \begin{align*}
+	&A\cup B=B \\
+	\iff& (x\in A\lor x\in B\iff x\in B) \\
+	\iff& ((x\in A\lor x\in B)\land x\in B)\lor ((x\not\in A\land x\not\in B)\land x\not\in B) \\
+	\iff& x\in B\lor (x\not\in A\land x\not\in B) \\
+	\iff& (x\in B\lor x\not\in A)\land (x\in B\lor x\not\in B) \\
+	\iff& x\in B\lor x\not\in A \\
+      \end{align*}
+    \item
+      \begin{align*}
+	&A-B=\emptyset \\
+	\iff& (x\in A\land x\not\in B\iff x\in\emptyset) \\
+	\iff& (x\in A\land x\not\in B\land x\in\emptyset)\lor ((x\not\in A\lor x\in B)\land x\not\in\emptyset) \\
+	\iff& x\in B\lor x\not\in A
+      \end{align*}
+  \end{enumerate}
+\end{aufgabe}
+\begin{aufgabe}
+  \begin{minipage}[t]{0.25\textwidth}
+    $p$: Anzahl Pferde
+  \end{minipage}
+  \begin{minipage}[t]{0.25\textwidth}
+    $k$: Anzahl Kühe
+  \end{minipage}
+  \begin{minipage}[t]{0.25\textwidth}
+    $h$: Anzahl Hühner
+  \end{minipage} \\
+  Nach den Bedingungen gilt $k(k+p)=h+120$. \\
+  \paragraph*{Fall 1:}
+  Beide Seiten der Gleichung sind gerade. \\
+  $h+120$ ist gerade, wenn $h$ gerade ist. Die einzige gerade Primzahl ist $2$, es gilt also $h=2$. \\
+  Es folgt $k(k+p)=122=2*61$. $k\neq 2$, da verschiedene Primzahlen gesucht werden und $h=2$ angenommen wird. Es muss also gelten $k+p=2$, was nicht durch zwei Primzahlen zu erfüllen ist $\implies$ Widerspruch.
+  \paragraph*{Fall 2:}
+  Es müssen also beide Seiten der Gleichung ungerade sein. \\
+  $k(k+p)$ ist ungerade, wenn beide Faktoren ungerade sind. $k+p$ ist ungerade, wenn genau einer der Summanden ungerade ist. Da $k$ bereits als Faktor auftritt und zwingend
+  ungerade sein muss, folgt $p$ ist gerade und damit $p=2$.
+  \begin{align*}
+    &k(k+2)=k^2+2k=h+120\iff k^2+2k-120=h=(k+12)(k-10)
+  \end{align*}
+  Einer der Teiler der Primzahl $h$ muss $1$ sein, und $k+12$ ist es nicht, da sonst $k=-11$ wäre. Also bleibt $1=k-10\iff k=11$. \\
+  Durch Einsetzen folgt $h=23$. Der Bauer hat 2 Pferde, 11 Kühe und 23 Hühner.
+\end{aufgabe}
+\begin{aufgabe}
+  Es gilt die Formel $F_n^2=F_{n-1}F_{n+1}+(-1)^{n-1}$\quad: \\
+  IB: $F_2^2=1*1=1=1*2-1=F_1F_3+(-1)^1$ \\
+  IV: Die Behauptung gelte für ein beliebiges, aber festes $n\in\N,n\geq 2$. \\
+  IS:
+  \begin{align*}
+    &F_{n+1}^2=F_{n+1}(F_n+F_{n-1})=F_nF_{n+1}+F_{n-1}F_{n+1}\overset{IV}{=}F_nF_{n+1}+F_n^2+(-1)^n \\
+    &=F_n(F_{n+1}+F_n)+(-1)^n=F_{(n+1)-1}F_{(n+1)+1}+(-1)^{(n+1)-1}\qed
+  \end{align*}
+\end{aufgabe}
+\end{document}

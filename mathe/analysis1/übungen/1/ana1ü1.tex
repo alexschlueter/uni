@@ -1,0 +1,212 @@
+\documentclass[a4paper,11pt,parskip=half,fleqn]{scrartcl}
+
+\usepackage[ngerman]{babel}         % Neue deutsche Rechtschreibung
+\usepackage[T1]{fontenc}            % Bessere Schriftdarstellung
+\usepackage{lmodern}                % Aktuelle Schrift
+
+
+\usepackage[utf8]{inputenc}                      %Linux
+
+%\usepackage{mathptmx}
+\usepackage[intlimits, fleqn]{amsmath}     % Zusaetzliche Matheumgebungen
+\usepackage{amssymb}                % Mathematische Symbole
+\usepackage{amsthm}
+\usepackage{siunitx}
+\usepackage{graphicx}               % notwendig fuer \includegraphics
+\usepackage{fancyhdr}               % Kopf- und Fusszeile
+\usepackage{lastpage}               % erzeugt Referez zu der letzten Seite
+\usepackage{moreverb}               % verbatimtab Umgeung
+%\usepackage{enumitem}
+\usepackage{framed, xcolor, color} 
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{wallpaper}
+\usepackage{booktabs,tabularx,rotating}
+\usepackage{nicefrac,units}
+\usepackage[normalem]{ulem} %unterstreichungen 
+\usepackage{paralist}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{paralist}
+\usepackage{pgfplots}
+
+\DeclareSIUnit\annum{a}
+\newcommand{\wrt}[1]{\mathrm{d}{#1}}
+\newcommand{\diff}[1]{\frac{\mathrm{d}}{\wrt{#1}}}
+\newcommand{\difff}[2]{\frac{\wrt{#1}}{\wrt{#2}}}
+\newcommand*\colvec[3][]{
+    \begin{pmatrix}\ifx\relax#1\relax\else#1\\\fi#2\\#3\end{pmatrix}
+}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+% Seiteneinstelungen
+\setlength\textwidth{165mm}           % Breite
+\setlength\textheight{235mm}          % Hoehe
+\setlength\headheight{41pt}           % Hoehe der Kopfzeile
+\setlength\topmargin{-12mm}           % Abstand oben
+\setlength\oddsidemargin{0mm}         % Linker Rand
+%\setlength\parindent{0pt}             % und ohne Einrueckung
+%\setlength\parskip{1.7\medskipamount} % Absaetze abgesetzt
+\sloppy\pagestyle{fancy}
+
+%Kopf- und Fusszeileeinstellungen
+\renewcommand{\headrulewidth}{0.4pt} 	%obere Trennlinie
+%\fancyfoot[C]{Seite:~\thepage~von~\pageref{LastPage}} %Seitennummer
+\fancyfoot[C]{}
+%\renewcommand{\footrulewidth}{0.4pt} 	%untere Trennlinie
+
+\fancyhead[C]{\bf{Übung 1\\}}
+\fancyhead[L]{Analysis 1\\ Alexander Schlüter}
+\fancyhead[R]{\today \\ Seite \thepage}
+
+\newcommand{\Aufgabe}[2][]{{\vskip0cm \sffamily {\Large \bfseries Aufgabe #2: #1} \par}}
+
+\usepackage{xcolor}
+\usepackage{framed}
+
+\definecolor{pink}{cmyk}{0.38,0.87,0,0}
+\definecolor{darkgreen}{cmyk}{0.86,0.2,1.0,0.07}
+\definecolor{headercolor}{HTML}{2867A4}
+\definecolor{shadecolor}{HTML}{D6DEE9}
+\lstset{basicstyle={\ttfamily},
+frame=single,
+framerule=0.4pt,
+breaklines=true,
+commentstyle={\color{darkgreen}},
+extendedchars=true,
+keywordstyle={\bfseries\color{pink}},
+language={C++},
+numbers=left,
+numberstyle={\color{gray}},
+stringstyle={\color{red}},
+showstringspaces=false,
+tabsize=4,
+numberbychapter=false}
+
+\newtheoremstyle{note}% ⟨name⟩
+{18pt}%	⟨Space above⟩ 
+{9pt}%	⟨Space below⟩ 
+{}%	⟨Body font⟩
+{}%	⟨Indent amount⟩1 
+{\bfseries}% ⟨Theorem head font⟩ 
+{}%	⟨Punctuation after theorem head⟩ 
+{0.5em}%	⟨Space after theorem head⟩2 
+{}%	⟨Theorem head spec (can be left empty, meaning ‘normal’)⟩
+\theoremstyle{note}
+\newtheorem*{definition}{Definition}
+\newtheorem*{bemerkung}{Bemerkung}
+\newtheorem*{satz}{Satz}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{axiom}{Axiom}
+\newtheorem*{beispiele}{Beispiele}
+\newtheorem*{beispiel}{Beispiel}
+\newtheorem{aufgabe}{Aufgabe}
+\newtheorem*{leer}{}
+
+%\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+
+\newcommand{\Num}[1]{\text{Num}_#1}
+\newcommand{\Bin}{\text{Bin}}
+\newcommand{\Oct}{\text{Oct}}
+\newcommand{\Hex}{\text{Hex}}
+\newcommand{\id}{\text{id}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\iu}{\text{i}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+\begin{document}
+\begin{aufgabe}
+  \begin{enumerate}
+    \item 
+      IB: $0^5-0=0=5*0$ \\
+      IV: Für beliebiges, aber festes $n\in\N$ gelte die Behauptung. \\
+      IS: $(n+1)^5-n-1=n^5+5n^4+10n^3+10n^2+5n-n-1\overset{IV}{=}5(n^4+2n^3+2n^2+n+\frac{n^5-n}{5})\qed$
+    \item
+      IB ($n=1$): $\prod\limits_{k=2}^1(1-\frac{1}{k^2})=1=\frac{1+1}{2*1}$ \\
+      IV: Für beliebiges, aber festes $n\in\N$ gelte die Behauptung. \\
+      IS: $\prod\limits_{k=2}^{n+1}(1-\frac{1}{k^2})\overset{IV}{=}(1-\frac{1}{(n+1)^2})\frac{n+1}{2n}=\frac{n+1}{2n}-\frac{1}{2n(n+1)}=\frac{(n+1)^2-1}{2n(n+1)}
+      =\frac{n^2+2n}{2n^2+2n}=\frac{(n+1)+1}{2(n+1)}\qed$
+    \item 
+      IB: $\sum\limits_{k=1}^0 k^3=0=\frac{0^2(0+1)^2}{4}$ \\
+      IV: Für beliebiges, aber festes $n\in\N$ gelte die Behauptung. \\
+      IS: $\sum\limits_{k=1}^{n+1}k^3\overset{IV}{=}(n+1)^3+\frac{n^2(n+1)^2}{4}=\frac{n^4+6n^3+13n^2+12n+4}{4}=\frac{(n^2+2n+1)(n^2+4n+4)}{4}=\frac{(n+1)^2(n+1+1)^2}{4}\qed$
+    \item Die Behauptung gilt für $n\in\{0,1,2\}$ (Beweis durch Einsetzen). Außerdem gilt sie für alle $n\geq 8$: \\
+      IB: $8^3=512\leq 2^{8+1}$ \\
+      IV: Für beliebiges, aber festes $n\in\N,n\geq 8$ gelte die Behauptung. \\
+      IS: $(n+1)^3=n^3+3n^2+3n+1\overset{IV}{\leq} 2^{n+1}+3n^2+3n+1\overset{n\geq 8}{\leq} 2^{n+1}+3n^2+4n\overset{n\geq 8}{\leq} 2^{n+1}+4n^2\overset{n\geq 8}{\leq} 2^{n+1}+n^3\overset{IV}{\leq}2^{n+2}\qed$
+  \end{enumerate}
+\end{aufgabe}
+\begin{aufgabe}
+  \begin{enumerate}
+    \item 
+      IB: $\sum\limits_{k=1}^{2*1}\frac{(-1)^{k+1}}{k}=1-\frac{1}{2}=\sum\limits_{k=1+1}^{2*1}\frac{1}{k}$ \\
+      IV: Für beliebiges, aber festes $n\in\N,n\geq 1$ gelte die Behauptung. \\
+      IS: $\sum\limits_{k=1}^{2(n+1)}\frac{(-1)^{k+1}}{k}\overset{IV}{=}\sum\limits_{k=n+1}^{2n}\frac{1}{k}+\frac{(-1)^{2n+2}}{2n+1}+\frac{(-1)^{2n+3}}{2n+2}
+      =\sum\limits_{k=n+1}^{2n}\frac{1}{k}+\frac{1}{2n+1}-\frac{1}{2n+2}=\sum\limits_{k=n+1}^{2n+1}\frac{1}{k}-\frac{1}{2n+2}
+      =\sum\limits_{k=n+2}^{2n+2}\frac{1}{k}-\frac{2}{2n+2}+\frac{1}{n+1}=\sum\limits_{k=(n+1)+1}^{2(n+1)}\frac{1}{k}\qed$
+    \item 
+      IB: $\sum\limits_{k=1}^{1}(-1)^k k^2=-1=(-1)^1\binom{1+1}{2}$ \\
+      IV: Für beliebiges, aber festes $n\in\N,n\geq 1$ gelte die Behauptung. \\
+      IS: $\sum\limits_{k=1}^{n+1}(-1)^k k^2\overset{IV}{=}(-1)^n\binom{n+1}{2}+(-1)^{n+1}(n+1)^2=(-1)^{n+1}\left( (n+1)^2-\frac{n(n+1)}{2} \right)
+      =(-1)^{n+1}\left( \frac{n^2+3n+2}{2} \right)=(-1)^{n+1}\left( \frac{(n+1)(n+2)}{2} \right)=(-1)^{n+1}\binom{(n+1)+1}{2}\qed$
+  \end{enumerate}
+\end{aufgabe}
+\begin{aufgabe}
+  \begin{enumerate}
+    \item 
+      IB: Für alle $n\in\N$ gilt $\binom{n}{0}\frac{1}{n^0}=1\leq \frac{1}{1!}$ \\
+      IV: Für beliebiges, aber festes $k\in\N$ gelte die Behauptung. \\
+      IS: $\binom{n}{k+1}\frac{1}{n^{k+1}}=\binom{n}{k}\frac{1}{n^k}*\frac{(n-k)}{n(k+1)}\overset{IV}{\leq} \frac{1}{k!}*\frac{n-k}{n(k+1)}=\frac{n-k}{n}\frac{1}{(k+1)!}$ \\
+      $\frac{n-k}{n}\leq 1$ muss gelten, da für $k>n$ der Binomialkoeffizient nicht definiert wäre. Also gilt: \\
+      $\frac{n-k}{n}\frac{1}{(k+1)!}\leq \frac{1}{k+1!}\qed$
+    \item 
+      IB: $2^4=16\leq24=4!$ \\
+      IV: Für beliebiges, aber festes $n\in\N,n\geq 4$ gelte die Behauptung. \\
+      IS: $2^{n+1}=2*2^n\overset{IV}{\leq}2*n!<(n+1)*n!$, da $2<n+1$ für $n\geq 4$ \\
+      $(n+1)*n!=(n+1)!\qed$
+    \item Jedes Summenglied von $(1+\frac{1}{n})^n=\sum\limits_{k=0}^n\binom{n}{k}\frac{1}{n^k}$ entspricht der linken Seite aus 3a), welches jeweils einem
+      Summenglied von $\sum\limits_{k=0}^n \frac{1}{k!}$ zugeordnet werden kann (vgl. 3a) rechte Seite). Die Summanden auf der linken Seite sind jeweils
+      kleiner gleich den Zugeordneten auf der rechten Seite (Beweis geliefert in 3a)) \\
+      Außerdem ist $\sum\limits_{k=0}^\infty \frac{1}{k!}=e=2.718\dots<3\qed$
+    \item 
+      IB: $\left(\frac{1}{3}\right)^1=\frac{1}{3}\leq \frac{1}{3}*1!$ \\
+      IV: Für beliebiges, aber festes $n\in\N,n\geq 1$ gelte die Behauptung. \\
+      IS: Nach c) gilt $( \frac{n+1}{n})^n=(1+\frac{1}{n})^n\overset{c)}{<}3$
+      \begin{equation*}\begin{split}
+	\overset{IV}{\implies}\left( \frac{n}{3}\right)^n*\left( \frac{n+1}{n}\right)^n<\frac{1}{3}n!*3\iff \frac{n^n(n+1)^n}{3^n*n^n}= \\
+	\left( \frac{n+1}{3}\right)^n<n!\iff\left(\frac{n+1}{3}\right)^{n+1}<n!*\frac{n+1}{3}=\frac{1}{3}(n+1)!\qed
+      \end{split}\end{equation*}
+  \end{enumerate}
+\end{aufgabe}
+\begin{aufgabe}
+  In der Vorlesung wurde gezeigt, dass die Anzahl aller $k$-elementigen Teilmengen einer $n$-elementigen Menge $\binom{n}{k}$ beträgt. Die Summe dieser
+  Teilmengen $\sum_{k=0}^n \binom{n}{k}$ ist die Anzahl aller Teilmengen, also gesuchte Ordnung der Potenzmenge. Es bleibt zu zeigen, dass
+  diese Summe $2^n$ ergibt:
+  \begin{equation*}\begin{aligned}
+    &\text{IB:\quad}\sum_{k=0}^0\binom{0}{k}=1=2^0 \\
+    &\text{IV:\quad Für beliebiges, aber festes $n\in\N$ gelte die Behauptung.} \\
+    &\text{IS:\quad}\sum_{k=0}^{n+1}\binom{n+1}{k}=2+\sum_{k=1}^{n}\binom{n+1}{k}\overset{\text{Vorlesung}}{=}2+\sum_{k=1}^{n}\binom{n}{k-1}+\sum_{k=1}^{n}\binom{n}{k} \\
+    &=1+\sum_{k=1}^{n}\binom{n}{k-1}+\sum_{k=0}^{n}\binom{n}{k}\overset{IV}{=}1+\sum_{k=1}^{n}\binom{n}{k-1}+2^n=1+\sum_{k=0}^{n-1}\binom{n}{k}
+    +2^n \\
+    &=\sum_{k=0}^n\binom{n}{k}+2^n\overset{IV}{=}2^n+2^n=2^{n+1}\qed \\
+  \end{aligned}\end{equation*}
+\end{aufgabe}
+\end{document}

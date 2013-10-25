@@ -1,0 +1,143 @@
+\documentclass[a4paper,11pt,parskip=half,fleqn]{scrartcl}
+
+\usepackage[ngerman]{babel}         % Neue deutsche Rechtschreibung
+\usepackage[T1]{fontenc}            % Bessere Schriftdarstellung
+\usepackage{lmodern}                % Aktuelle Schrift
+
+
+\usepackage[utf8]{inputenc}                      %Linux
+
+%\usepackage{mathptmx}
+\usepackage[intlimits]{amsmath}     % Zusaetzliche Matheumgebungen
+\usepackage{amssymb}                % Mathematische Symbole
+\usepackage{amsthm}
+\usepackage[amssymb]{SIunits}
+\usepackage{graphicx}               % notwendig fuer \includegraphics
+\usepackage{fancyhdr}               % Kopf- und Fusszeile
+\usepackage{lastpage}               % erzeugt Referez zu der letzten Seite
+\usepackage{moreverb}               % verbatimtab Umgeung
+\usepackage{enumitem}
+\usepackage{framed, xcolor, color} 
+\usepackage{listings}
+\usepackage{caption}
+\usepackage{wallpaper}
+\usepackage{booktabs,tabularx,rotating}
+\usepackage{nicefrac,units}
+\usepackage[normalem]{ulem} %unterstreichungen 
+\usepackage{paralist}
+\usepackage{mathrsfs}
+\usepackage{mathtools}
+\usepackage{paralist}
+
+\usepackage{pstricks,multido,pst-plot}
+
+\DeclareMathAlphabet{\mathpzc}{OT1}{pzc}{m}{it}
+% Seiteneinstelungen
+\setlength\textwidth{165mm}           % Breite
+\setlength\textheight{235mm}          % Hoehe
+\setlength\headheight{41pt}           % Hoehe der Kopfzeile
+\setlength\topmargin{-12mm}           % Abstand oben
+\setlength\oddsidemargin{0mm}         % Linker Rand
+%\setlength\parindent{0pt}             % und ohne Einrueckung
+%\setlength\parskip{1.7\medskipamount} % Absaetze abgesetzt
+\sloppy\pagestyle{fancy}
+
+%Kopf- und Fusszeileeinstellungen
+\renewcommand{\headrulewidth}{0.4pt} 	%obere Trennlinie
+%\fancyfoot[C]{Seite:~\thepage~von~\pageref{LastPage}} %Seitennummer
+\fancyfoot[C]{}
+%\renewcommand{\footrulewidth}{0.4pt} 	%untere Trennlinie
+
+\fancyhead[C]{\bf{Analysis 1\\}}
+\fancyhead[L]{Übung 0\\ Alexander Schlüter}
+\fancyhead[R]{\today \\ Seite \thepage}
+
+\newcommand{\Aufgabe}[2][]{{\vskip0cm \sffamily {\Large \bfseries Aufgabe #2: #1} \par}}
+
+\usepackage{xcolor}
+\usepackage{framed}
+
+\definecolor{pink}{cmyk}{0.38,0.87,0,0}
+\definecolor{darkgreen}{cmyk}{0.86,0.2,1.0,0.07}
+\definecolor{headercolor}{HTML}{2867A4}
+\definecolor{shadecolor}{HTML}{D6DEE9}
+\lstset{basicstyle={\ttfamily},
+frame=single,
+framerule=0.4pt,
+breaklines=true,
+commentstyle={\color{darkgreen}},
+extendedchars=true,
+keywordstyle={\bfseries\color{pink}},
+language={C++},
+numbers=left,
+numberstyle={\color{gray}},
+stringstyle={\color{red}},
+showstringspaces=false,
+tabsize=4,
+numberbychapter=false}
+
+\newtheoremstyle{note}% ⟨name⟩
+{15pt}%	⟨Space above⟩ 
+{9pt}%	⟨Space below⟩ 
+{}%	⟨Body font⟩
+{}%	⟨Indent amount⟩1 
+{\bfseries}% ⟨Theorem head font⟩ 
+{}%	⟨Punctuation after theorem head⟩ 
+{0.5em}%	⟨Space after theorem head⟩2 
+{}%	⟨Theorem head spec (can be left empty, meaning ‘normal’)⟩
+\theoremstyle{note}
+\newtheorem*{definition}{Definition}
+\newtheorem*{bemerkung}{Bemerkung}
+\newtheorem*{satz}{Satz}
+\newtheorem*{lemma}{Lemma}
+\newtheorem*{axiom}{Axiom}
+\newtheorem*{beispiele}{Beispiele}
+\newtheorem*{beispiel}{Beispiel}
+\newtheorem{aufgabe}{Aufgabe}
+
+%\renewcommand{\theenumi}{\roman{enumi}}
+\renewcommand{\labelenumi}{(\theenumi)}
+
+\newcommand{\Num}[1]{\text{Num}_#1}
+\newcommand{\Bin}{\text{Bin}}
+\newcommand{\Oct}{\text{Oct}}
+\newcommand{\Hex}{\text{Hex}}
+\newcommand{\id}{\text{id}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\iu}{\text{i}}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+
+% Swap the definition of \abs* and \norm*, so that \abs
+% and \norm resizes the size of the brackets, and the 
+% starred version does not.
+\makeatletter
+\let\oldabs\abs
+\def\abs{\@ifstar{\oldabs}{\oldabs*}}
+%
+\let\oldnorm\norm
+\def\norm{\@ifstar{\oldnorm}{\oldnorm*}}
+\makeatother
+
+\begin{document}
+\begin{aufgabe}
+  \begin{compactenum}
+    \item Es regnet, aber die Erde ist nicht nass.
+    \item Es ist trocken, obwohl die Sonne nicht scheint, oder die Sonne scheint, aber es ist nicht trocken.
+    \item Einmal gibt es keinen, der aus der Reihe tanzt.
+    \item Jemand hat die Absicht, eine Mauer zu errichten.
+  \end{compactenum}
+\end{aufgabe}
+\begin{aufgabe}
+  \begin{equation}
+    \frac{0,05g}{700000000t}*\sum\limits_{i=0}^{63} 2^i 
+  \end{equation}
+\end{aufgabe}
+\end{document}
+
+
