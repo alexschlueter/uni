@@ -1,0 +1,141 @@
+%        File: test.tex
+%     Created: Fri Oct 10 01:00 AM 2014 C
+% Last Change: Fri Oct 10 01:00 AM 2014 C
+%
+\documentclass[ngerman, a4paper, 12pt]{scrartcl}
+
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage[german]{cleveref}
+
+\begin{document}
+\paragraph{Aufgabe 1}
+\begin{itemize}
+    \item \textbf{fett}
+    \item \textit{kursiv}
+    \item \texttt{Schreibmaschine}
+    \item \underline{unterstrichen}
+    \item \textsc{Kapitälchen}
+\end{itemize}
+\begin{itemize}
+    \item ``\tiny{Das ist} \small{ein Satz} \normalsize{, der diese}
+        \huge{Schriftgrößen demonstriert.''}
+\end{itemize}
+\paragraph{Aufgabe 2}
+\begin{enumerate}
+    \item Physik I
+    \begin{itemize}
+        \item Methodik der Physik
+        \item Klassische (newtonsche) Mechanik
+        \item Bewegungsgleichungen
+        \item Einblick in die spezielle Relativitätstheorie
+    \end{itemize}
+    \item Physik II
+        \begin{enumerate}
+            \item Kinetische Gastheorie
+            \begin{enumerate}
+                \item Maxwell-Boltzmann-Verteilung
+                \item Ideales Gas
+                \item Modelle realer Gase
+            \end{enumerate}
+            \item Klassische Thermodynamik
+            \item Elektrostatik
+            \item Magnetostatik
+        \end{enumerate}
+    \item Physik III
+        \paragraph{Klassische Elektrodynamik}
+        Maxwell-Gleichungen, Wechselstrom, Licht
+        \begin{enumerate}
+            \item Elektrodynamik im Vakuum
+            \item Elektrodynamik in Materie
+        \end{enumerate}
+        \paragraph{Ausbreitung von Wellen} Wellen auf Kabeln, Lichtausbreitung im Vakuum
+        \paragraph{Quantenphysik} Einblick in die Quantenmechanik
+        \paragraph{Spezielle Relativitätstheorie} Schnell bewegte Bezugssysteme
+\end{enumerate}
+\paragraph{Aufgabe 3}
+\begin{enumerate}
+    \item
+    \begin{equation}
+        E=mc^2
+    \end{equation}
+    \begin{equation}
+        F=-G \cdot \frac{mM}{r^2}
+        \label{eq:gravi}
+    \end{equation}
+    \begin{equation}
+        C=\frac{Q}{U}
+    \end{equation}
+    \begin{equation}
+        U=U_0 \cdot e^{-\frac{t}{RC}}
+    \end{equation}
+    \begin{equation}
+        U=2 \pi r
+        \label{eq:umf}
+    \end{equation}
+    \begin{equation}
+        A=\pi r^2 = \pi \frac{d^2}{4}
+        \label{eq:flach}
+    \end{equation}
+    \begin{equation}
+        r=\sqrt{\frac{(s-a)(s-b)(s-c)}{s}}
+    \end{equation}
+    \item
+    Der Satz von Pythagoras, $a^2+b^2=c^2$, beschreibt das Verhältnis von
+    Längen in einem rechtwinkligen Dreieck und ist eine sehr bekannte
+    mathematische Aussage.
+    \item
+    \begin{align}
+        (a+b)^3 &= (a+b)^2(a+b) \label{eq:ab1} \\
+            &= (a^2+2ab+b^2)(a+b) \\
+            &= [(a^3+2a^2b+ab^2)+(a^2b+2ab^2+b^2)] \\
+            &= a^3+3a^2b+3ab^2+b^3 \label{eq:ab2}
+    \end{align}
+    \item
+    \begin{align*}
+        0 &= \frac{1}{\pi} \int_0^{2\pi} \cos(nx)\sin(mx) \, \mathrm{d}x \\
+        \dot{Q} &= -\lambda \Lambda \frac{\Delta T}{L} \\
+        I &= \int_A \vec{j} \cdot \mathrm{d}\vec{\Lambda} \\
+        \vec{F} &= -\frac{q_1 q_2}{4 \pi
+          \varepsilon_0}\frac{\vec{r_1}-\vec{r_2}}{|\vec{r_1}-\vec{r_2}|^3} \\
+        \Lambda &= \frac{\tan(x)\sin(x)}{\pi^2\rho_{neu}} \cdot \rho_{alt}
+          \cdot \int_1^x \exp\left( \frac{mv^2}{2\ln(x)} \right) \,
+          \mathrm{d}x
+    \end{align*}
+\item
+    \begin{align}
+        \nabla\cdot \vec{D} &= \rho_f \\
+        \nabla\cdot \vec{B} &= 0 \\
+        \nabla\times \vec{E} &= -\frac{\partial \vec{B}}{\partial t} \\
+        \nabla\times \vec{H} &= \vec{j}_f+\frac{\partial \vec{D}}{\partial t}
+    \end{align}
+\end{enumerate}
+\paragraph{Aufgabe 4}
+\begin{enumerate}
+    \item Versucht, einen automatischen Verweis auf \cref{eq:gravi} zu
+        erzeugen.
+    \item Erzeugt den folgenden Text mit automatischen Verweisen:
+        ``\cref{eq:gravi,eq:umf,eq:flach}''
+    \item Erzeugt den folgenden Text mit automatischen Verweisen:
+        ``\crefrange{eq:ab1}{eq:ab2}''
+\end{enumerate}
+\paragraph{Aufgabe 5}
+\begin{enumerate}
+    \item 
+        \begin{tabular}{| c c || c |}
+            \hline
+            1 & 2 & 3 \\
+            \hline \hline
+            4 & 5 & 6 \\
+            7 & 8 & 9 \\ \hline
+        \end{tabular}
+    \item
+        \begin{tabular}{l | l l l l | l}
+            \textbf{Haarfarbe} & \multicolumn{4}{c}{\textbf{Augenfarbe}} &
+            \textbf{Summe} \\
+        \end{tabular}
+\end{enumerate}
+\end{document}
