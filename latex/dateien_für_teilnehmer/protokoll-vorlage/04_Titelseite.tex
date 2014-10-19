@@ -1,0 +1,53 @@
+% Autor: Simon May
+% Datum: 2014-08-16
+
+% Befehl, um die E-Mail-Adressen darzustellen
+\makeatletter
+\newcommand{\protokollemailparse}[1]{
+	\@for\@tempa:=#1\do{
+		\email{\@tempa}\par
+	}
+}
+\makeatother
+
+% Informationen für die PDF-Datei
+\hypersetup{
+	pdfinfo={
+		Title={Versuchsprotokoll \varNum. \varName},
+		Author={\varAutor}
+	}
+}
+
+\begin{titlepage}
+	\vspace*{2.5cm}
+	\begin{center}
+		\Huge
+		\textbf{Versuchsprotokoll \varNum}
+
+		\LARGE
+		\varName
+
+		\vspace{0.5cm}
+		\large
+		\varDate
+
+		\IfFileExists{res/wwu_logo.png}{
+			\vspace{0.5cm}
+			\includegraphics[width=0.5\textwidth]{res/wwu_logo.png}
+		}{
+		\vspace{4cm}
+		}
+
+		\vspace{1.5cm}
+		\varAutor
+
+		\vspace{1cm}
+		\normalsize
+		\varGruppe
+
+		\ifthenelse{\boolean{showEmail}}{
+			\protokollemailparse{\varEmail}
+		}{}  
+	\end{center}
+\end{titlepage}
+

@@ -1,0 +1,167 @@
+% Aufgaben für den LaTeX-Kurs (2014-10-10)
+% Autor: Simon May
+% Datum: 2014-10-09
+% Quelle: https://de.wikipedia.org/wiki/Modell
+
+\documentclass[a4paper, 12pt]{scrartcl}
+
+\usepackage[no-math]{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+
+\usepackage{xcolor}
+\usepackage{csquotes}
+\usepackage{datetime}
+\usepackage{xfrac}
+\usepackage{siunitx}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% --- Paket-Einstellungen
+% -- csquotes
+\MakeOuterQuote{"}
+% -- hyperref
+\hypersetup{unicode}
+% -- siunitx
+\sisetup{
+	locale=DE,
+	separate-uncertainty,
+	quotient-mode=fraction,
+	per-mode=fraction,
+	fraction-function=\sfrac
+}
+
+\begin{document}
+
+\section{Modell}
+Ein Modell ist ein beschränktes Abbild der Wirklichkeit. Dies kann gegenständlich oder theoretisch geschehen. Nach Herbert Stachowiak ist es durch mindestens drei Merkmale gekennzeichnet:
+\begin{enumerate}
+    \item Abbildung – Ein Modell ist stets ein Modell von etwas, nämlich Abbildung, Repräsentation eines natürlichen oder eines künstlichen Originals, das selbst wieder Modell sein kann.
+    \item Verkürzung – Ein Modell erfasst im Allgemeinen nicht alle Attribute des Originals, sondern nur diejenigen, die dem Modellschaffer bzw. Modellnutzer relevant erscheinen.
+    \item Pragmatismus – Modelle sind ihren Originalen nicht eindeutig zugeordnet. Sie erfüllen ihre Ersetzungsfunktion a) für bestimmte Subjekte (Für Wen?), b) innerhalb bestimmter Zeitintervalle (Wann?) und c) unter Einschränkung auf bestimmte gedankliche oder tätliche Operationen (Wozu?).
+\end{enumerate}
+
+Zudem werden gelegentlich weitere Merkmale diskutiert, wie Extension und Distortion sowie Validität.
+
+\tableofcontents
+
+\section{Wortherkunft}
+
+Das Wort Modell entstand im Italien der Renaissance als ital. modello, hervorgegangen aus lat. modulus, einem Maßstab in der Architektur, und wurde bis ins 18. Jahrhundert in der bildenden Kunst als Fachbegriff verwendet. Um 1800 verdrängte Modell im Deutschen das ältere, direkt vom lat. modulus (Maß(stab)) entlehnte Wort Model (Muster, Form, z. B. Kuchenform), das noch im Verb ummodeln und einigen Fachsprachen und Dialekten fortlebt.
+
+\section{Modellbildung}
+
+Die Modellbildung abstrahiert mit dem Erstellen eines Modells von der Realität, weil diese meist zu komplex ist, um sie genau abzubilden. Dies wird aber auch gar nicht beabsichtigt, vielmehr sollen lediglich die wesentlichen Einflussfaktoren identifiziert werden, die für den zu betrachtenden Prozess bedeutsam sind.
+
+Man unterscheidet die strukturelle und die pragmatische Modellbildung. Bei struktureller Modellbildung ist die innere Struktur des Systems bekannt, es wird jedoch bewusst abstrahiert, modifiziert und reduziert. Man spricht hier von einem Whitebox-Modell. Bei pragmatischer Modellbildung ist die innere Struktur des Systems unbekannt, es lässt sich nur das Verhalten bzw. die Interaktion des Systems beobachten und modellieren. Die Hintergründe lassen sich meist nicht oder nur zum Teil verstehen – hier spricht man von einem Blackbox-Modell. Zudem gibt es Mischformen, bei denen Teile des Systems bekannt sind, andere wiederum nicht. Nicht alle Wechselwirkungen und Interaktionen zwischen Teilkomponenten lassen sich nachvollziehen – hier spricht man vom Greybox-Modell. Diese Mischform ist die häufigste, weil es aufgrund von Kosten-Nutzen-Überlegungen meist ausreichend ist, das System auf diese Weise abzubilden.
+
+\subsection{Prozesse der Modellbildung}
+
+Bei der Modellbildung lassen sich folgende Prozesse differenzieren:
+
+\begin{itemize}
+    \item Abgrenzung: Nichtberücksichtigung irrelevanter Objekte
+    \item Reduktion: Weglassen von Objektdetails
+    \item Dekomposition: Zerlegung, Auflösung in einzelne Segmente
+    \item Aggregation: Vereinigung von Segmenten zu einem Ganzen
+    \item Abstraktion: Begriffs- bzw. Klassenbildung
+\end{itemize}
+
+\section{Komplexität und Qualität eines Modells}
+
+Ein Ziel eines Modellierers ist generell die Reduzierung der Komplexität des Modells gegenüber der Realität. Ein häufiger Trugschluss ist daher, ein Modell mit der Realität gleichzusetzen. Tatsächlich kann lediglich der Modellkontext bestimmt und optimiert werden. Damit wird die Zweckbindung des Modells bestimmt. Weiter kann das Modell hinsichtlich der Komplexität variiert werden. Im Grundsatz bleibt das Modell in allen Merkmalen außer der Verständlichkeit immer hinter der Realität zurück.
+
+\section{Modelle in verschiedenen Disziplinen}
+\subsection{Mathematische Modelle in der Wissenschaft}
+Mathematische Modelle sind in mathematischen Formeln beschriebene Modelle. Sie versuchen, die wesentlichen Parameter der meist natürlichen Phänomene zu erfassen. Durch die formelle Beschreibung kann ein Modell berechnet und wissenschaftlich geprüft werden.
+
+Berechenbarkeit bedeutet hier sowohl die analytische Untersuchung als auch die Approximation mittels numerischer Verfahren. In der Regel sind auch die sogenannten physikalischen Modelle mathematische Modelle, sie stützen sich jedoch auf physikalische Gesetzmäßigkeiten.
+
+Ein valides Modell kann zur Prognose eines zukünftigen Verhaltens benutzt werden.
+
+Bekannte Anwendungsfälle mathematischer Modelle sind etwa Prognosen des Klimawandels, des Wetters oder die Statik eines Gebäudes.
+
+\subsection{Mathematik und Logik}
+In der Modelltheorie der mathematischen Logik geht es nicht um eine Abbildung der Wirklichkeit in Mathematik. Hier versteht man unter einem Modell eines Axiomensystems eine mit gewissen Strukturen versehene Menge, auf die die Axiome des Systems zutreffen. Die Existenz eines Modells beweist, dass sich die Axiome nicht widersprechen; existieren sowohl Modelle mit einer gewissen Eigenschaft als auch solche, die diese Eigenschaft nicht haben, so ist damit die logische Unabhängigkeit der Eigenschaft von den Axiomen bewiesen.
+
+In der Logik ist das Modell einer Formel F eine Bewertung, die F den Wahrheitswert <wahr> zuordnet. Man spricht auch davon, dass diese Bewertung die Formel erfüllt.[6] Das Modell eines Satzes (einer Formel) ist daher eine Interpretation, die den Satz (die Formel) erfüllt.
+
+Entsprechend ist das Modell einer Menge wohlgeformter Formeln die Interpretation durch Zuordnung von semantischen Werten zu den in den Formeln enthaltenen einfachen Ausdrücken, so dass alle Formeln den Wahrheitswert <wahr> erhalten, also eine Belegung, die die betreffende Menge verifiziert. Abstrakter kann man formulieren, dass wenn "$\Sigma$ eine Menge von L-Sätzen [ist]; eine L-Struktur, die jeden Satz in $\Sigma$ wahr macht, [\dots] ein Modell von $\Sigma$ [heißt]."
+
+Das Modell eines Axiomensystems ist ein Gegenstandsbereich und eine Interpretation der undefinierten Grundbegriffe, bei der ein Axiomensystem wahr ist oder mit den Worten Carnaps:
+
+\begin{quote}
+    „Unter einem Modell (genauer, einem logischen oder mathematischen Modell) für die axiomatischen Grundzeichen eines gegebenen AS [Axiomensystems] in bezug auf einen gegebenen Individuenbereich D versteht man eine Bewertung für diese Zeichen derart, dass sowohl der Bereich D wie auch die Bewertung ohne Gebrauch deskriptiver Konstanten angegeben wird.“
+\end{quote}
+
+Mit anderen Worten heißt es im Historischen Wörterbuch der Philosophie: „Modell heißt in der Logik ein System aus Bereichen und Begriffen, insofern es die Axiome einer passend formulierten Theorie erfüllt.“
+
+In der Modallogik besteht ein Modell aus drei Komponenten:
+
+\begin{enumerate}
+    \item einer Klasse möglicher Welten;
+    \item einer Zuordnungsfunktion, die jedem Paar aus einer atomaren Aussage und einer möglichen Welt einen Wahrheitswert zuordnet;
+    \item einer Zugänglichkeitsrelation zwischen möglichen Welten.
+\end{enumerate}
+
+Die Modelltheorie der Logik wird auch in der modelltheoretischen Semantik verwandt.
+
+\subsection{Wissenschaftstheorie}
+In der Methodologie und Wissenschaftstheorie wird zwischen Modellen unterschieden, die zur Erklärung von bekannten Sachverhalten oder Objekten dienen und solchen, die auf einer hypothetischen Annahme (Hypothese) beruhen und bei denen der Entdeckungszusammenhang beim Test von Theorien im Vordergrund steht. Erklärende Modelle sind häufig Skalenmodelle, die einen maßstäblichen Bezug zur Wirklichkeit haben (Spielzeugauto). Demgegenüber stehen Analogiemodelle, die die Strukturähnlichkeit (Homomorphie) der abgebildeten Wirklichkeit erzeugen (sollen) wie zum Beispiel das Planetenmodell der Atome. Für Theorien werden oftmals abstrakte oder fiktive Modelle gebildet. Eine weitere Unterscheidung ist, ob Modelle beschreibend sind (deskriptiv) oder ob durch die Modelle ein Sachverhalt festgelegt wird (präskriptiv).
+
+Dem Modell kommt im wissenschaftlichen Erkenntnisprozess eine große Bedeutung zu. Unter bestimmten Bedingungen und Zwecksetzungen besitzen Modelle bei der Untersuchung realer Gegenstände und Prozesse in unterschiedlichen Wirklichkeitsbereichen und beim Aufbau wissenschaftlicher Theorien eine wichtige Erkenntnisfunktion. So dienen sie u. a. dazu, komplexe Sachverhalte zu vereinfachen (idealisieren) bzw. unserer Anschauung zugänglich zu machen.
+
+Fiktive Modelle sind Mittel zur tieferen und umfassenderen Erkenntnis der Wirklichkeit. Im Prozess der Abstraktion mit Methoden der Idealisierung bzw. der Konstruktion entstanden, helfen sie, reale Eigenschaften, Beziehungen und Zusammenhänge aufzudecken, bestimmte reale Eigenschaften erfassbar und praktisch beherrschbar werden zu lassen. Sie werden zumeist gebildet, um auf real existierende Objekte die Mittel der theoretischen, besonders der mathematischen Analyse anwenden zu können.
+
+Beispiele: ideales Gas, absolut schwarzer Körper, Massenpunkt, vollkommener Markt u. a. (siehe ideales Objekt)
+
+Die erkenntnistheoretische und logische Möglichkeit und Rechtfertigung der Zulässigkeit von Modellen ist nur eine Seite. Wesentlich ist letztlich die Rechtfertigung der Zulässigkeit der Fiktion durch die tätige Praxis, das heißt der praktische Nachweis, dass die mit Hilfe des Modells aufgebaute Theorie auf reale Objekte effektiv angewendet werden kann.
+
+Eine gesonderte Diskussion wird in der Wissenschaftstheorie darüber geführt, ob Modelle als Repräsentationen die Realität abbilden (Realismus), oder ob es sich nur um theoretische Konstruktionen handelt (Konstruktivismus).
+
+\subsection{Informatik}
+In der Informatik dienen Modelle zum einen zur Abbildung eines Realitätsausschnitts, um eine Aufgabe mit Hilfe der Informationsverarbeitung zu lösen. Derartige Modelle heißen Domänenmodelle. Hierunter fallen z. B. Modelle für zu erstellende Software sowohl für deren Architektur (Architekturmodell) als auch deren Code (in Form von beispielsweise Programmablaufplandiagrammen) und Datenmodelle für die Beschreibung der Strukturen von zu verarbeitenden Daten aus betrieblicher/fachlogische Sicht oder aus technischer Datenhaltungssicht. Zum anderen können Modelle als Vorlage bei der Konzeption eines informatorischen Systems dienen, man spricht dann von Systemmodellen. Hierunter fallen insbesondere Referenzmodelle, die allgemein als Entwurfsmuster eingesetzt werden können. Referenzmodelle werden beispielsweise für die Konzeption konkreter Rechenanlagen, Netzwerkprotokolle, Data-Warehouse-Systeme und Portale herangezogen.
+
+Neben diesen Modellen, die sich in Hard- und Software sowie in Datenbeständen konkretisieren, gibt es auch Planungs-, Steuerungs- und Organisationsmodelle. Typische zu modellierende Objekte sind hierbei die Ablaufstruktur eines Geschäftsprozesses, abgebildet in einem Geschäftsprozessmodell, und die Aufbaustruktur einer betrieblichen Organisation, abgebildet in einem Organigramm. (Lit.: Broy)
+
+In der Wirtschaftsinformatik (WI) dienen Modelle vorwiegend der Beschreibung realer und soziotechnischer Systeme, siehe Modell (Wirtschaftsinformatik). Bei der Modellierung von Mensch-Maschine-Systemen – eine Domäne der Wirtschaftsinformatik – muss die technische wie auch die menschliche Komponente modelliert werden. Für den Menschen stehen unterschiedliche Modelle zur Verfügung, die verschiedene Aspekte menschlichen Verhaltens und menschlicher Fähigkeiten nachbilden und die entsprechend dem Untersuchungsziel ausgewählt werden. Fahrermodelle oder Pilotenmodelle modellieren den Menschen in einer ganz bestimmten Arbeitssituation, Regler-Mensch-Modelle in seiner allgemeinen Fähigkeit, eine Größe zu regeln. Die Anpassungsfähigkeit des Menschen an kognitiv unterschiedlich anspruchsvolle Aufgaben wird im Drei-Ebenen-Modell nach Rasmussen nachgebildet. Ein Gegenstand der Forschung ist unter anderem, kognitive Architekturen wie ACT-R/PM oder SOAR in der anwendungsorientierten Modellierung und Simulation (MoSi) von Mensch-Maschine-Schnittstellen einzusetzen.
+
+\subsection*{Spezielle Wortverwendungen}
+\begin{itemize}
+    \item Ein Computermodell ist ein mathematisches Modell, das aufgrund seiner Komplexität und/oder der schieren Anzahl von Freiheitsgraden nur mit einem Computer ausgewertet werden kann.
+    \item In der Computergrafik und verwandten Gebieten werden mit Hilfe der geometrischen Modellierung 3D-Modelle von Körpern erzeugt.
+    \item Ein Digitales Geländemodell (DGM) bzw. Digitales Höhenmodell (DHM) ist ein digitales, numerisches Modell der Geländehöhen und -formen. Ein DGM bzw. DHM stellt im Gegensatz zum Digitalen Oberflächenmodell (DOM) keine Objekte auf der Erdoberfläche dar (z. B. Bäume oder Häuser).
+\end{itemize}
+
+\subsection{Naturwissenschaften: Chemie und Physik}
+In der Chemie dienen Modelle insbesondere zur Veranschaulichung von kleinsten Teilchen, wie beispielsweise Atome und Moleküle, und zur Erklärung und Deutung von chemischen Reaktionen, die oftmals auch simuliert werden. Modellexperimente stellen häufig die Funktion von technischen Prozessen dar.
+
+In der Physik spielen Modelle ähnlich wie in der Chemie zur Veranschaulichung und zum Verständnis von Atomen und Elementarteilchen eine große Rolle. Physikalische Theorien und Modelle sind eng verknüpft und bestimmen das Denken in Modellen zur Erkenntnisgewinnung und zum Verständnis von Relationen und Strukturen. Beispiele für Theorien sind die Atomtheorie, die kinetische Gastheorie, die Wellentheorie des Lichts und die Relativitätstheorie. Zur Modellbildung gehört auch die Mathematisierung physikalischer Gesetzmäßigkeiten. Im didaktischen Bereich werden Modelle häufig im Sinne von Analogien zwischen dem zu untersuchenden Objektbereich und schon erforschten Bereichen benutzt. Zusätzlich werden Demonstrationsmodelle als vereinfachte Abbilder (z. B. das Planetenmodell) benutzt. Simulationen dienen neben der Veranschaulichung physikalischer Zusammenhänge der Überprüfung von Hypothesen. Experimente haben nicht nur im Physikunterricht oft Modellcharakter, indem sie die komplexe Realität vereinfachen und sich bei der induktiven Herleitung von Gesetzmäßigkeiten auf das Wesentliche beschränken. Funktionsmodelle haben beispielsweise eine Bedeutung zur Verdeutlichung der Funktion von einfachen Maschinen.
+
+\section{Spezielle Ansätze}
+\subsection{Modellplatonismus}
+Der Begriff wurde durch Hans Albert geprägt. Er kennzeichnet kritisch die Abweichung des neoklassischen Denkstils in der Volkswirtschaftslehre von der Methodologie einer empirischen Sozialwissenschaft. Als Beispiele dienen das Nachfragegesetz, die Quantitätstheorie sowie die Wachstumstheorie.
+
+Obwohl die neoklassische Theorie mit ihren Modellbetrachtungen offenkundig auf das wirtschaftliche Handeln von Menschen gerichtet ist, wird die soziale Verursachung des menschlichen Handelns, wie sie etwa die empirische Sozialwissenschaft auf unterschiedliche Weise in Rechnung stellt, größtenteils ausgeschaltet. Einige Theoretiker leugnen gar die Absicht, kausale Erklärungen zu liefern und begnügen sich anstelle von Aussagen, die Informationsgehalt besitzen, weil sie an empirischen Daten scheitern können, mit Aussagen, die nichts weiter als einen Realitätsbezug aufweisen (d. h. reale Dinge erwähnen). Verbunden wird diese Vorgehensweise mit der Tendenz, die Aussagen so zu gestalten, dass sie schon aufgrund ihrer logischen Struktur wahr sind. Erreicht wird dies durch tautologische Formulierungen oder die Anwendung von konventionalistischen Strategien (Immunisierungsstrategie), wozu zum Beispiel die Verwendung einer expliziten oder impliziten ceteris-paribus-Klausel rechnet. Dieser von ihren Anhängern in ihren praktischen Konsequenzen für die Anwendbarkeit der analytischen Ergebnisse nicht immer überblickte methodische Stil des Denkens in Modellen, die von jedweder empirischen Überprüfbarkeit bewusst oder unbewusst abgeschottet werden, läuft auf eine neuartige Form des Platonismus hinaus. Platon war davon überzeugt, dass die Wirklichkeit durch rein logisches Denken erkannt werde; statt die Sterne zu beobachten, sollten wir deren Bewegungsgesetze durch das Denken ergründen.
+
+In der deutschen Nationalökonomie dominierte damals der Schulenstreit zwischen Begriffsrealismus (Essentialismus) und Modellplatonismus. Diese Frontstellung hält Albert für aus methodologischen Gründen verfehlt; er setzt sich stattdessen ein für Wirtschaftswissenschaft, verstanden als eine empirische Sozialwissenschaft. In diesem Sinne spricht er auch von Marktsoziologie oder einer „Soziologie der kommerziellen Beziehungen“.
+
+\section{Siehe auch}
+
+\begin{itemize}
+    \item Bonini-Paradox
+    \item Deduktiv-nomologisches Modell (formale Struktur der wissenschaftlichen Erklärung eines Kausalzusammenhangs mittels natürlicher Sprache)
+    \item Gesellschaft (Soziologie)
+    \item Modellierungssprache
+    \item Neuronenmodell (mathematisches Modell einer Nervenzelle)
+    \item Ökologische Modellierung
+    \item Systemtheorie (interdisziplinäres Erkenntnismodell)
+    \item V-Modell (Vorgehensmodell in der Softwareentwicklung)
+    \item Wissensmodellierung
+\end{itemize}
+
+
+
+\end{document}

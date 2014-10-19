@@ -1,0 +1,332 @@
+% Aufgaben für den LaTeX-Kurs (2014-10-10)
+% Autor: Simon May
+% Datum: 2014-10-09
+
+\documentclass[a4paper, 12pt, headsepline, pagesize=auto]{scrartcl}
+
+\usepackage[no-math]{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage{polyglossia}
+\setdefaultlanguage{german}
+
+\usepackage{xcolor}
+\usepackage{csquotes}
+\usepackage{scrpage2}
+\usepackage{lastpage}
+\usepackage{parskip}
+\usepackage{datetime}
+\usepackage[intlimits]{amsmath}
+\usepackage{siunitx}
+\usepackage{enumitem}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{microtype}
+\usepackage{listingsutf8}
+\usepackage[backend=biber, style=verbose]{biblatex}
+\usepackage{xfrac}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{cleveref}
+
+% --- Paket-Einstellungen
+% -- latex
+\widowpenalty=9000
+\clubpenalty=9000
+% -- koma
+\setkomafont{pageheadfoot}{\normalfont}
+\addtokomafont{pagefoot}{\small}
+\setlength{\headheight}{3.1\baselineskip}
+% -- scrpage2
+\ihead[]{\textbf{Einführung in \LaTeX\\Aufgaben}}
+\chead[]{\includegraphics[height=2.8\baselineskip]{res/logo.pdf}}
+\ohead[]{Simon May\\Fachschaft Physik}
+\cfoot[Seite: \pagemark\ von \pageref{LastPage}]{Seite: \pagemark\ von \pageref{LastPage}}
+\pagestyle{scrheadings}
+% -- biblatex
+\addbibresource{res/literatur.bib}
+% -- csquotes
+\MakeOuterQuote{"}
+% -- hyperref
+\hypersetup{unicode}
+% -- siunitx
+\sisetup{
+	locale=DE,
+	separate-uncertainty,
+	quotient-mode=fraction,
+	per-mode=fraction,
+	fraction-function=\sfrac,
+	output-product=\cdot,
+	math-micro=\text{µ},
+	text-micro=µ
+}
+% -- listings
+\input{einstellungen_listings.tex}
+% --- Befehle
+\DeclareUTFcharacter[\UTFencname]{x201C}{\grqq}
+\DeclareUTFcharacter[\UTFencname]{x201E}{\glqq}
+\newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
+
+\newcounter{aufgabe}
+\newenvironment{aufgabe}[1][]{\stepcounter{aufgabe}
+\noindent\textbf{Aufgabe \arabic{aufgabe}.} #1\par
+\begin{enumerate}[label=\alph*)]}{\end{enumerate}\bigskip}
+\newenvironment{aufgabe*}[1][]{\stepcounter{aufgabe}
+\noindent\textbf{Aufgabe \arabic{aufgabe}.} #1}{\bigskip}
+
+\begin{document}
+
+\title{Einführung in \LaTeX: Aufgaben}
+\author{Simon May\\\email{simon.may@uni-muenster.de}}
+\date{\formatdate{10}{10}{2014}}
+
+\maketitle
+
+\begin{aufgabe}[Textformatierung]
+	\item Stellt das folgende Beispiel aus der Vorlesung nach:
+	\begin{itemize}
+		\item \textbf{fett}
+		\item \textit{kursiv}
+		\item \texttt{Schreibmaschine}
+		\item \underline{unterstrichen}
+		\item \textsc{Kapitälchen}
+	\end{itemize}
+	\item Stellt diesen Satz nach:
+	
+	\DisableQuotes
+	{\huge\glqq}{\tiny Das ist }{\small ein Satz, }{\large der }{\Large diese }{\huge Schriftgrößen demonstriert.\grqq}
+	\EnableQuotes
+\end{aufgabe}
+
+\begin{aufgabe*}
+	Aufzählungen -- Stellt das folgende Beispiel nach:
+
+	\begin{enumerate}
+		\item Physik~I
+		\begin{itemize}
+			\item Methodik der Physik
+			\item Klassische (newtonsche) Mechanik
+			\item Bewegungsgleichungen
+			\item Einblick in die spezielle Relativitätstheorie
+		\end{itemize}
+		\item Physik~II
+		\begin{enumerate}
+			\item Kinetische Gastheorie
+			\begin{enumerate}
+				\item Maxwell-Boltzmann-Verteilung
+				\item Ideales Gas
+				\item Modelle realer Gase
+			\end{enumerate}
+			\item Klassische Thermodynamik
+			\item Elektrostatik
+			\item Magnetostatik
+		\end{enumerate}
+		\item Physik~III
+		\begin{description}
+			\item[Klassische Elektrodynamik] Maxwell-Gleichungen, Wechselstrom, Licht
+			\begin{enumerate}
+				\item Elektrodynamik im Vakuum
+				\item Elektrodynamik in Materie
+			\end{enumerate}
+			\item[Ausbreitung von Wellen] Wellen auf Kabeln, Lichtausbreitung im Vakuum
+			\item[Quantenphysik] Einblick in die Quantenmechanik
+			\item[Spezielle Relativitätstheorie] Schnell bewegte Bezugssysteme
+		\end{description}
+	\end{enumerate}
+\end{aufgabe*}
+
+\begin{aufgabe}[Formeln]
+	\item Setzt die folgenden Formeln mit \LaTeX:
+	\begin{equation} E = mc^2 \end{equation}
+	
+	\begin{equation}\label{eq:newton} F = -G \cdot \frac{mM}{r^2} \end{equation}
+	
+	\begin{equation} C = \frac{Q}{U}\end{equation}
+	
+	\begin{equation} U = U_0 \cdot e^{-\frac{t}{RC}}\end{equation}
+	
+	\begin{equation}\label{eq:circle_circumference} U = 2 \pi r\end{equation}
+	
+	\begin{equation}\label{eq:circle_area} A = \pi r^2 = \pi \frac{d^2}{4}\end{equation}
+	
+	\begin{equation} r = \sqrt{\frac{(s-a)(s-b)(s-c)}{s}}\end{equation}
+	\item Fügt eine Formel in den Fließtext ein:
+	
+	"Der Satz von Pythagoras, $a^2 + b^2 = c^2$, beschreibt das Verhältnis von Längen in einem rechtwinkligen Dreieck und ist eine sehr bekannte mathematische Aussage."
+	\item Setzt folgende Herleitung mit \LaTeX:
+	\begin{align*}
+	(a + b)^3
+	&= (a + b)^2 (a + b)\\
+	&= (a^2 + 2ab + b^2) (a + b)\\
+	&= \left[(a^3 + 2 a^2 b + a b^2) + (a^2 b + 2 a b^2 + b^3)\right] \\
+	&= a^3 + 3 a^2 b + 3 a b^2 + b^3
+	\end{align*}
+	\item Versucht euch als nächstes an diesen Formeln:
+	\begin{align*}
+		0 &= \frac{1}{\pi} \int_0^{2 \pi} \cos (nx) \sin (mx) \, \mathrm{d}x\\
+		\dot Q &= - \lambda A \frac{\Delta T}{L}\\
+		I &= \int_A \vec j \cdot \mathrm{d}\vec{A}\\
+		\vec F &= - \frac{q_1 q_2}{4 \pi \varepsilon_0} \frac{\vec r_1 - \vec r_2}{|\vec r_1 - \vec r_2|^3} \\
+		A &= \frac{\tan(x) \sin(x)}{\pi^2 \varrho_{\text{neu}}} \cdot \varrho_{\text{alt}} \cdot \int_1^X \exp\!\left (\frac{m v^2}{2\ln(x)} \right) \, \mathrm{d}x
+	\end{align*}
+	\item Setzt die Maxwell-Gleichungen in Materie mit \LaTeX:
+	\begin{align}
+		\label{eq:max1}\nabla \cdot \vec{D} &= \rho_\text{f} \\
+		\nabla \cdot \vec{B} &= 0 \\
+		\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
+		\label{eq:max4}\nabla \times \vec{H} &= \vec{j}_\text{f} + \frac{\partial\vec{D}}{\partial t}
+	\end{align}
+	
+	\emph{Erinnerung:} \lstinline!\nabla! ergibt $\nabla$, \lstinline!\partial! ergibt $\partial$.
+\end{aufgabe}
+
+\clearpage
+
+\begin{aufgabe}[Verweise]
+	\item Versucht, einen automatischen Verweis auf \cref{eq:newton} zu erzeugen.
+	\item Erzeugt den folgenden Text mit automatischen Verweisen:\\
+	"\cref{eq:newton,eq:circle_circumference,eq:circle_area}".
+	\item Erzeugt den folgenden Text mit automatischen Verweisen:\\
+	"\crefrange{eq:max1}{eq:max4}".
+	
+	\emph{Hinweis:} Einen Bereich von Verweisen kann man mit\\
+	\lstinline!\crefrange{<label1>}{<label2>}! erzeugen.
+\end{aufgabe}
+
+\begin{aufgabe}[Tabellen -- Reproduziert die folgenden Tabellen.]
+	\item 
+	\begin{tabular}{|c c || c|}
+	\hline
+	1 & 2 & 3 \\\hline\hline
+	4 & 5 & 6 \\
+	7 & 8 & 9 \\\hline
+	\end{tabular}
+	\item
+	\begin{tabular}{l | S S S S | S}
+	& \multicolumn{4}{c|}{\textbf{Augenfarbe}} & \\
+	\textbf{Haarfarbe} & \textbf{Braun} & \textbf{Blau} & \textbf{Grau} & \textbf{Grün} & \textbf{Summe} \\ \hline
+	\textbf{Braun} &	119 &	84 &	54 &	29 &	286 \\
+	\textbf{Blond} &	7 &	94 &	10 &	16 &	127 \\
+	\textbf{Schwarz} &	68 &	20 &	15 &	5 &	108 \\
+	\textbf{Rot} &	26 &	17 &	14 &	14 &	71 \\ \hline
+	\textbf{Summe} &	220 &	215 &	93 &	64 &	592
+	\end{tabular}
+	
+	\emph{Hinweis:} Mit dem Befehl\\
+	\lstinline!\multicolumn{<spaltenzahl>}{<neue_spalte>}{Text...}! lassen sich Spalten zusammenfassen.
+
+	\emph{Hinweis:} Zur einfacheren Eingabe gibt es z.B.\ in TeXStudio die Option "Wizards \textrightarrow\ Quick Tabular\dots"
+	\item Cyclohexan:\\[\parskip]
+	\begin{tabular}{S S}
+	\hline
+	{Masse [\si{\g}]}	& {Volumenänderung [\si{\ml}]} \\\hline
+	0,15		& 55+-2 \\
+	0,18		& 59+-1 \\
+	0,19		& 58+-1 \\
+	0,19		& 55+-1 \\
+	0,2			& 61+-3 \\\hline
+	\end{tabular}
+		
+	\emph{Hinweis:} Verwendet \lstinline!S!-Spalten!
+	
+	\clearpage
+	\item ~\\
+	\begin{table}[H]
+	\centering
+	\caption{Gemessene Massen und daraus resultierende Volumenänderung bei der Bestimmung der molaren Masse von Ethanol mit der Dampfdichtemethode.}
+	\begin{tabular}{S S}
+	\hline
+	{Masse [\si{\g}]}	& {Volumenänderung [\si{\ml}]} \\\hline
+	0,06		& 55+-3 \\
+	0,1			& 60+-2 \\
+	0,11		& 58+-1 \\
+	0,07		& 54+-1 \\
+	0,08		& 52+-1 \\\hline
+	\end{tabular}
+	\label{tab:ethanol}
+	\end{table}
+\end{aufgabe}
+
+\begin{aufgabe}[Abbildungen]
+	\newcommand{\kursangle}{240}
+	\item Fügt folgendes Bild (\texttt{answer.jpg}) in euer Dokument ein:
+	
+	\includegraphics[width=5cm, angle=\kursangle]{res/answer.jpg}
+	
+	\emph{Hinweis:} Der Winkel ist \SI{\kursangle}{\degree}.
+	\item Erstellt die folgende Abbildung mit Unterabbildungen\\
+	(zweites Bild: \texttt{8bit\_mario.png}):
+	
+	\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+	\centering
+	\includegraphics[width=0.65\textwidth]{res/answer.jpg}
+	\caption{Antwort auf die ultimative Frage nach dem Leben, dem Universum und dem ganzen Rest.}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+	\centering
+	\includegraphics[width=0.65\textwidth]{res/8bit_mario.png}
+	\caption{8bit-Mario sucht die Prinzessin.}
+	\end{subfigure}
+	\caption{Zwei Beispielbilder.}
+	\end{figure}
+	\item Erzeugt den folgenden Text mit eingebettetem Bild (\texttt{logo.pdf}):
+\end{aufgabe}
+	
+Die Physik-Pflichtvorlesung gehört bei Studierenden von Fächern wie Medizin, Pharmazie, Landschaftsökologie und Biowissenschaften normalerweise nicht zu den Lieblingskursen.
+
+\begin{wrapfigure}{r}{0cm}
+	\centering
+	\includegraphics[width=9cm]{res/logo.pdf}
+	\caption{Das Logo der Fachschaft Physik der Westfälischen Wilhelms-Universität Münster.}
+\end{wrapfigure}
+Doch es geht auch anders: Dem Experimentalphysiker Prof. Dr. Rudolf Bratschitsch gelingt es, besonders auch die Nebenfach-Studierenden für seine Vorlesung zu begeistern. Daher hat er nun den Lehrpreis 2014 der Fachschaft Physik der Westfälischen Wilhelms-Universität Münster (WWU) erhalten.
+
+Die Fachschaft bescheinigt Rudolf Bratschitsch "herausragende und vorbildliche Lehr- und Lernformen sowie außergewöhnliches Engagement in der Lehre". Sie beruft sich dabei auf die Ergebnisse von Umfragen unter mehr als 250 Studierenden. Physikfachschaftler und AStA-Vorsitzender Friedrich Bach erklärte: "Es gibt Professorinnen und Professoren, die es jenseits der reinen Sachebene schaffen, ihre Studierenden in ihren Bann zu ziehen. Sie erklären selbst schwierigsten Lehrstoff anschaulich und vermögen einen wahren Begeisterungssturm für ihr Fach auszulösen."
+
+\begin{aufgabe}[Erzeugt folgende Werte mit \texttt{siunitx}:]
+	\item \SI{12345,67890}{\ohm}
+	\item \num{1 +- 2i}
+	\item \SI{.3e45}{\m\cubed}
+	\item \num{1.654 x 2.34 x 8,99}
+	\item \SI{1,793 +- 0,026}{\micro\F}
+	\item \SI{9,81+-0,52}{\m\per\s\squared}
+\end{aufgabe}
+
+\begin{aufgabe*}
+	Zitiert den Nolting 4\footcite{nolting4} und den Demtröder 1\footcite{demtröder1} im Dokument und erstellt das Literaturverzeichnis (\lstinline!\printbibliography!)!
+\end{aufgabe*}
+
+\begin{aufgabe*}
+Baut das Dokument in der Datei \texttt{tableofcontents.pdf} nach!
+
+\emph{Hinweis:} Das Inhaltsverzeichnis wird mit dem Befehl \lstinline!\tableofcontents! erzeugt.
+\end{aufgabe*}
+
+\begin{aufgabe*}
+In der Datei \texttt{beispielprotokoll.pdf} findet ihr ein Protokoll zu einem der Versuche im Grundpraktikum. Baut es so originalgetreu wie möglich nach!
+
+Die nötigen Bilder findet ihr im Ordner \texttt{beispielprotokoll\_bilder}.
+\end{aufgabe*}
+
+\begin{aufgabe*}
+	Erzeugt die Datei \texttt{prony.pdf} mit gnuplot!
+	
+	\emph{Hinweise}:
+	\begin{itemize}
+		\item Die Messwerte befinden sich in der Datei \texttt{prony.csv}.
+		\item Ihr dürft konstante Werte für die Fehlerbalken auf der $\eta$-Achse wählen!
+		\item Nutzt die folgenden Formeln und Werte, um den Wirkungsgrad $\eta$ zu berechnen:
+		\begin{align*}
+		P_\text{el} &= \num{14.6} \cdot \num{0.048} \cdot \frac{1000}{3} \si{\W} \\
+		r &= \SI{0,5}{\m} \\
+		P &= 2 \pi f F r \\
+		\eta &= \frac{P}{P_\text{el}}
+		\end{align*}
+		\item Die Ausgleichskurve ist eine Parabel.
+	\end{itemize}
+\end{aufgabe*}
+
+
+\end{document}
