@@ -1,0 +1,16 @@
+% Eigene Befehle eignen sich gut, um Abkürzungen für lange Befehle zu erstellen. Die Syntax ist folgende:
+% \newcommand{neuer Befahl}[Anzahl Parameter (optional)]{ein langer Befehl}
+% Das folgende Beispiel fügt ein Bild mit bestimmten vorgegebenen Optionen ein:
+\newcommand{\centeredImage}[1]{
+	\begin{figure}[h!]
+		\centering
+		\includegraphics[width=0.50\textwidth]{#1}
+	\end{figure}
+}
+% #1 ist dabei ein Parameter, den man \centeredImage übergeben muss. In 10_Titelseite.tex wird dieser Befehl verwendet. Der Parameter ist dort Bilder/titelseite.jpg.
+% Benötigt man keine Parameter, dann lässt man [1] weg. Werden zusätzliche Parameter benötigt, dann kann man die Zahl auf maximal 9 erhöhen.
+
+% Ein Befehl, um eine E-Mail-Adresse darzustellen bzw. automatisch zu verlinken
+\newcommand{\email}[1]{\href{mailto:#1}{\texttt{#1}}}
+
+
