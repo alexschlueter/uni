@@ -1,0 +1,111 @@
+% --- Pakete einbinden
+% --- Pakete erweitern LaTeX um zusätzliche Funktionen. Dies ist ein Satz nützlicher Pakete.
+
+% Silbentrennung; Sprache wird durch Option bei \documentclass festgelegt
+\usepackage{babel}
+% Verwendung der Zeichentabelle T1 (Sonderzeichen etc.)
+\usepackage[T1]{fontenc}
+% Legt die Zeichenkodierung der Eingabedatei fest, z.B. UTF8
+\usepackage[utf8]{inputenc}
+% Schriftart
+\usepackage{lmodern}
+
+% Einige LaTeX-Bugfixes
+\usepackage{fixltx2e}
+% Nutzen von +, -, *, / in \setlength u.ä. (z.B. \setlength{\a + 3cm})
+\usepackage{calc}
+% Wird benötigt, um \ifthenelse zu benutzen
+\usepackage{xifthen}
+% Optionen für eigene definierte Befehle
+\usepackage{xparse}
+
+% Verbessertes Aussehen von Text
+\usepackage{microtype}
+% Automatische Anführungszeichen
+\usepackage[autostyle]{csquotes}
+% Wird für Kopf- und Fußzeile benötigt
+\usepackage{scrpage2}
+% Einfaches Wechseln zwischen unterschiedlichen Zeilenabständen
+\usepackage{setspace}
+% Optionen für Listen (enumerate, itemize, ...)
+\usepackage{enumitem}
+% Zusätzliche Optionen für Tabellen (tabular)
+\usepackage{array}
+
+% Mathepaket (intlimits: Grenzen über/unter Integralzeichen)
+\usepackage[intlimits]{amsmath}
+% Mathe-Symbole, \mathbb etc.
+\usepackage{amssymb}
+% Weitere Mathebefehle
+\usepackage{mathtools}
+% "Schöne" Brüche im Fließtext
+\usepackage{xfrac}
+% Ermöglicht die Nutzung von \SI{Zahl}{Einheit} u.a.
+\usepackage{siunitx}
+
+% Farben
+\usepackage{xcolor}
+% Zum flexiblen Einbinden von Grafiken (\includegraphics)
+\usepackage{graphicx}
+% .tex-Dateien mit \includegraphics einbiden
+\usepackage{gincltex}
+% Abbildungen im Fließtext
+\usepackage{wrapfig}
+% Zitieren, Bibliographie
+\usepackage[style=verbose, backend=biber]{biblatex}
+% Darstellung von Captions
+\usepackage[font=small, labelfont=bf, format=plain]{caption}
+% Abbildungen nebeneinander
+\usepackage{subcaption}
+
+% Verlinkt Textstellen im PDF-Dokument
+\usepackage[pdfpagelabels, unicode]{hyperref}
+% "Schlaue" Referenzen (nach hyperref laden!)
+\usepackage{cleveref}
+
+% plots
+\usepackage{gnuplottex}
+\usepackage{pgfplots}
+
+% Genauere Position von figures
+\usepackage{float}
+
+% Mehrere Zeilen in table
+\usepackage{multirow}
+
+% --- Einstellungen
+% -- latex
+% größere Kopfzeile (wegen LaTeX-Warnung)
+\setlength{\headheight}{1.4\baselineskip}
+% 1,5-facher Zeilenabstand
+\onehalfspacing
+
+% -- biblatex (Literaturverzeichnis)
+\IfFileExists{res/literatur.bib}{
+	\addbibresource{res/literatur.bib}
+}{}
+
+% -- csquotes
+% Anführungszeichen automatisch umwandeln
+\MakeOuterQuote{"}
+
+% -- siunitx
+\sisetup{
+	locale=DE,
+	separate-uncertainty,
+	input-product=*,
+	output-product=\cdot,
+	quotient-mode=fraction,
+	per-mode=fraction,
+	fraction-function=\sfrac
+}
+
+% -- hyperref
+\hypersetup{
+	% Links/Verweise mit Kasten der Dicke 0.5pt versehen
+	pdfborder={0 0 0.5}
+}
+
+% -- cleveref
+\crefformat{footnote}{#2\textsuperscript{#1}#3}
+
