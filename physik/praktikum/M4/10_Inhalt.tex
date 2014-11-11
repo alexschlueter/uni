@@ -10,12 +10,11 @@ Da beim Stoß die Summe der äußeren Kräfte auf das Gesamtsystem aus beiden Ku
 wobei $\hat{\vec{v_1}}, \hat{\vec{v_2}}$ die Geschwindigkeiten der Kugeln im Schwerpunktssystem und  $m_1, m_2$ die Kugelmassen sind. \\
 
 Da auch Impulserhaltung gilt, fallen die gemischten Terme weg:
-\begin{align}
-  &\frac{1}{2}(m_1+m_2)v_s^2+\frac{1}{2}m_1\hat{v}_1^2+\frac{1}{2}m_2 \hat{v}_2^2+\vec{v}_s(m_1 \hat{\vec{v}}_1+m_2 \hat{\vec{v}}_2)= \\
-  &\frac{1}{2}(m_1+m_2)v_s^2+\frac{1}{2}m_1\hat{v_1}'^2+\frac{1}{2}m_2 \hat{v}'_2^2+\vec{v}_s(m_1 \hat{\pvec{v}}'_1+m_2 \hat{\pvec{v}}'_2) \\
-  \iff &\frac{1}{2}(m_1+m_2)v_s^2+\frac{1}{2}m_1\hat{v}_1^2+\frac{1}{2}m_2 \hat{v}_2^2=\frac{1}{2}(m_1+m_2)v_s^2+\frac{1}{2}m_1\hat{v}'_1^2+\frac{1}{2}m_2 \hat{v}'_2^2
-  \label{eq:energieerhalt2}
-\end{align}
+\begin{gather}
+  \frac{1}{2}(m_1+m_2)v_s^2+\frac{1}{2}m_1\hat{v}_1^2+\frac{1}{2}m_2 \hat{v}_2^2+\vec{v}_s(m_1 \hat{\vec{v}}_1+m_2 \hat{\vec{v}}_2)=\\
+  \frac{1}{2}(m_1+m_2)v_s^2+\frac{1}{2}m_1\hat{v_1}'^2+\frac{1}{2}m_2 \hat{v}'_2^2+\vec{v}_s(m_1 \hat{\pvec{v}}'_1+m_2 \hat{\pvec{v}}'_2)\\
+  \iff \frac{1}{2}(m_1+m_2)v_s^2+\frac{1}{2}m_1\hat{v}_1^2+\frac{1}{2}m_2 \hat{v}_2^2=\frac{1}{2}(m_1+m_2)v_s^2+\frac{1}{2}m_1\hat{v}'_1^2+\frac{1}{2}m_2 \hat{v}'_2^2
+\end{gather}
 Im Praktikum werden nur gerade, elastische Stöße zwischen zwei Kugeln betrachtet, bei denen die zweite Kugel vor dem Stoß in Ruhe ist: $\vec{v}_2=0$. Sind $\vec{v}_1$ die Geschwindigkeit der ersten Kugel vor dem Stoß, $\pvec{v}'_1$ und $\pvec{v}'_2$ die Kugelgeschwindigkeiten nach dem Stoß, so gilt:
 
 \begin{equation}
@@ -38,6 +37,11 @@ Rollt die stoßende Kugel vor dem Stoß eine Fallrinne herunter, so ist nur der 
   &=\frac{1}{5}R^5 \cdot 2\pi\cdot \frac{4}{3}\cdot \frac{m}{\frac{4}{3}\pi R^3} = \frac{2}{5}mR^2
   \label{eq:traegheitsmom}
 \end{align}
+Dabei wurde genutzt, dass 
+\begin{equation}
+  \int_0^\pi \, \mathrm{d}\theta\, \sin(\theta)^3=\int_0^\pi \, \mathrm{d}\theta\, \sin(\theta) - \int_0^\pi \, \mathrm{d}\theta\, \cos(\theta)^2 \sin(\theta)\overset{u = \cos(\theta)}{=}2-\int_{-1}^1 \, \mathrm{d}u \, u^2 =2 - \frac{2}{3}=\frac{4}{3}
+  \label{eq:sinintegral}
+\end{equation}
 
 So ist die resultierende Auslenkung der Kugel am Pendel:
 \begin{equation}
@@ -45,12 +49,13 @@ So ist die resultierende Auslenkung der Kugel am Pendel:
   \label{eq:fallrinne}
 \end{equation}
 
-mit $\varepsilon=5/9$.
+mit $\varepsilon=5/9$.\\
+
 Ziel der Versuche ist nun, die aus den Stoßgesetzen hergeleiteten Beziehungen experimentell zu überprüfen.
 
-\section{Versuch: Stoß zweier Kugeln am Pendel}
+\section{Versuch: Gerader zentraler Stoß beim ballistischen Pendel}
 
-Die große (Masse $m_g=\SI{486.42\pm0.01}{g}$) und die mittlere Kugel (Masse $m_m=\SI{175.59\pm0.01}{g}$) hängen jeweils an einem an der Decke befestigtem Fadenpendel der Länge $l=\SI{1.922\pm0.01}{m}$. Sie sind so justiert, dass die Kugel sich in der Ruheposition gerade mittig berühren. Unter den Kugeln ist parallel zur Stoßgeraden ein Längenmaß angebracht. Durch zwei Schieber auf der Messlatte werden Auslenkungen gemessen und der Versuch wird für 5 verschiedene Auslenkungen je 5 mal durchgeführt.\\
+Die große (Masse $m_g=\SI{486.42\pm0.01}{g}$) und die mittlere Kugel (Masse $m_m=\SI{175.59\pm0.01}{g}$) hängen jeweils an einem an der Decke befestigtem Fadenpendel der Länge $l=\SI{1.922\pm0.01}{m}$. Sie sind so justiert, dass die Kugel sich in der Ruheposition gerade mittig berühren und die Stoßgerade in der Pendelebene liegt. Unter den Kugeln ist parallel zur Stoßgeraden ein Längenmaß angebracht. Durch zwei Schieber auf der Messlatte werden Auslenkungen gemessen und der Versuch wird für 5 verschiedene Auslenkungen je 5 mal durchgeführt.\\
 
 Es wird erwartet, dass aufgrund der Impulserhaltung die schwerere Kugel eine stärkere Auslenkung der leichteren hervorruft als andersherum. Aus gleichem Grund wird bei größerer Auslenkung der stoßenden Kugel eine größere Auslenkung der gestoßenen Kugel erwartet.
 
@@ -139,9 +144,7 @@ Jetzt mit Messwerten:
 \end{align}
 Im Rahmen des Fehlers ist die Summe der Steigungen wie erwartet 2. Das Massenverhältnis aus den gewogenen Massen stimmt innerhalb des Fehlers mit dem Verhältnis der Steigungen überein.\\
 
-Dieser Versuch zeigt also, dass die aus den Stoßgesetzen hergeleitete Auslenkungsgleichung~\cref{eq:auslenkung} korrekt ist. Es besteht ein linearer Zusammenhang zwischen Auslenkung der stoßenden und der gestoßenen Kugel. Der Proportionalitätsfaktor $k=\frac{2m_1}{m_1+m_2}$ hängt wie erwartet direkt mit den Massen der Kugeln zusammen und das Massenverhältnis lässt sich aus dem Steigungsfit zurückgewinnen.
-
-\section{Versuch: Gerader zentraler Stoß einer rollender Kugel}
+\section{Versuch: Gerader zentraler Stoß einer rollenden Kugel}
 Bei diesem Versuch wird die kleine Kugel($m_{\text{klein}}= 63,26 \pm 0,01 g $ und $D_{\text{klein}}=2,4 \pm 0,1 cm$) eine Rampe herunter gerollt und regt in einem geraden zentralen Stoß die große, an einem Pendel ($l=1,922 \pm 0,01m$) hängende Kugel ($m_{\text{groß}}=486,42 \pm 0,01g$ und $D_{\text{groß}}=4,7 \pm 0,1 cm$) an.
 
 \begin{figure}[htbp] 
@@ -150,7 +153,8 @@ Bei diesem Versuch wird die kleine Kugel($m_{\text{klein}}= 63,26 \pm 0,01 g $ u
 	\caption{Schematische Darstellung der Fallrinne}
   \label{fig:Fallrinne}
 \end{figure}
-Aus Formatierungsgründen wurde anstatt $h_0$ (vgl. Versuchsanleitung) $d$ verwendet.
+
+Aus Formatierungsgründen wurde in Abbildung \ref{fig:Fallrinne} anstatt $h_0$ (vgl. Versuchsanleitung) $d$ verwendet.
 
 Dieser Versuch wird mit unterschiedlichen Werten für S wiederholt und die entsprechenden maximalen Auslenkungen der großen Kugel werden jeweils durch peilen auf ein auf der Arbeitsfläche liegendes Lineal bestimmt.
 
@@ -159,6 +163,7 @@ Dieser Versuch wird mit unterschiedlichen Werten für S wiederholt und die entsp
   \begin{tabular}{l | c | c | c | c | c | c}
     S [$\pm 0,1$ cm]  & \num{0} & \num{10} & \num{20} & \num{30} & \num{40} & \num{50}\\ \hline
    Durchschnittliche Auslenkung [$\pm 0,2$ cm] & \num{15,26} & \num{14,26} & \num{12,38} & \num{10,64} & \num{8,2} & \num{5,16} \\
+   Mittlere Abweichung [cm] & \num{0,128} &\num{0,088} & \num{0,104} & \num{0,112} & \num{0,08} & \num{0,048}
     
   \end{tabular}
   \caption{Auslenkung der grossen Kugel}
@@ -252,7 +257,7 @@ Mit \emph{gnuplot} werden nach dem \emph{least-squares}-Verfahren die Werte gege
   \label{tab:durchbiegungsfit}
 \end{table}
 
-Mit der Formel () kann man nun den nutzbaren Energiefaktor $\epsilon$ bestimmen.
+Mit der Formel \ref{eq:fallrinne} kann man nun den nutzbaren Energiefaktor $\epsilon$ bestimmen.
 \begin{gather}
 a'_2=\frac{2m_1}{m_1+m_2}\sqrt{\epsilon 2lh}
 \end{gather}\begin{gather*}
@@ -260,13 +265,29 @@ a'_2=\frac{2m_1}{m_1+m_2}\sqrt{\epsilon 2lh}
 \iff \epsilon = k \frac{2m_1}{m_1+m_2}\sqrt{\frac{1}{2l}}= 0,6132
 \end{gather*}
 
-Bei dem Vergleich mit dem Literaturwert $\epsilon_{lit}=\frac{5}{9}$.
+Bei dem Vergleich mit dem Literaturwert $\epsilon_{lit}=\frac{5}{9}$, erhält man
 \begin{gather}
 \frac{\epsilon}\epsilon_{lit}=1,103\\
 \epsilon - \epsilon_{lit}= 0,058
 \end{gather}
 \section{Abschließende Diskussion}
-
-
+\subsection{Stoß zweier Kugeln am Pendel}
+Dieser Versuch zeigt, dass die aus den Stoßgesetzen hergeleitete Auslenkungsgleichung~\cref{eq:auslenkung} korrekt ist. Es besteht ein linearer Zusammenhang zwischen Auslenkung der stoßenden und der gestoßenen Kugel. Der Proportionalitätsfaktor $k=\frac{2m_1}{m_1+m_2}$ hängt wie erwartet direkt mit den Massen der Kugeln zusammen und das Massenverhältnis lässt sich aus dem Steigungsfit zurückgewinnen.
+Der relative Fehler des gewogenen Massenverhältnisses zur Steigung beträgt
+\begin{equation}
+  \Delta k = \frac{m_g/m_m-k_1/k_2}{m_g/m_g}=\SI{3.62}{\percent}
+  \label{eq:steigungsfehler_rel}
+\end{equation}
+Dieser geringe Fehler ist erstaunlich, da dieselbe Messmethode zum Ablesen der Auslenkung verwendet wurde wie in Versuch 2, wo eine deutlich höhere Differenz zum Theoriewert besteht (s.u.). Möglicherweise ist dies auf einen Wechsel der messenden Person zurückzuführen (Versuch 1: Josh misst, Alex stößt; Versuch 2: Alex misst, Josh lässt Kugel rollen).
+\subsection{Gerader zentraler Stoß einer rollenden Kugel}
+Bei dem Versuch ,,Gerader zentraler Stoß einer rollender Kugel'' ist eine deutliche Abweichung zum Literaturwert festzustellen, mehr als $10\%$. Dies ist auf die vielen Messwerte mit ihren teilweise nicht kleinen Messungenauigkeiten, die in die Bestimmung von k und damit $\epsilon$ einlaufen, zurückzuführen. Dazu gehört zum Beispiel die Fallhöhe h mit einem Fehler von mehr als $1\%$ und die Auslenkung der großen Kugel mit einem Fehler von $1,3\%$.
+Die Bestimmung dieser Auslenkung war in diesem Versuch leider nicht ideal gelöst, da nur zwei Möglichkeiten, die jedoch beide Nachteile hatten, bestanden, sie zu bestimmen.
+\begin{enumerate}
+\item Auslenkung anpeilen\\
+Bei dieser Methode wird die maximale Auslenkung dadurch bestimmt, dass parallel zur Schwingungsrichtung ein Schieber soweit verschoben wird, dass er sich auf einer Höhe mit der Kugel in ihrem Maximum befindet. Der deutliche Nachteil dieser Methode ist das Peilen, da es schwer ist genau das Maximum als Referenzpunkt zu finden und diesen Abstand dann noch genau zu bestimmen.
+\item Auslenkung ablesen\\
+Bei dieser Methode wurde ein Schieber in den Schwingungsweg der Kugel gestellt und so verschoben das die Kugel diesen möglichst gerade nicht mehr trifft. Dies verdeutlicht auch direkt die Schwäche dieser Methode, es ist sehr schwer den genauen Punkt zu finden, bei dem die Kugel den Schieber so gerade nicht mehr erreicht. Dafür war jedoch das Ablesen der bestimmten Auslenkung deutlich genauer.
+\end{enumerate}
+Da beide Methoden einen Fehler, der schwer abzuschätzen ist, haben und so für eine große Messungenauigkeit sorgen, sind sie beide nicht besonders gut geeignet. Jedoch standen andere Methoden nicht zur Option.
 
 \nocite{anleitung-ws2014}
