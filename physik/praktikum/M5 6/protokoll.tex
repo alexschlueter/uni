@@ -1,0 +1,104 @@
+% LaTeX-Vorlage für Versuchsprotokolle
+% Autor: Simon May
+% Datum: 2014-08-16
+
+% Es gibt die Dokumenttypen scrartcl ("Artikel"), scrreprt ("Bericht"),
+% scrbook ("Buch") und scrlettr2 ("Brief"). Diese gehören zum KOMA-Skript,
+% bieten mehr Optionen als die "Standardklassen" und sollten besonders für
+% deutsche Texte benutzt werden.
+% Natürlich gibt es noch weitere Klassen, z.B. beamer für Präsentationen.
+\documentclass[
+	ngerman,        % Sprache für z.B. Babel
+	a4paper,        % Papierformat
+	oneside,        % Einseitig
+	%twoside,       % Zweiseitig
+	%twocolumn,     % Zweispaltig
+	12pt,           % Schriftgröße
+	pagesize=auto,  % schreibt die Papiergröße korrekt ins Ausgabedokument
+	headsepline     % Linie unter der Kopfzeile
+]{scrartcl}
+
+% --- Pakete einbinden
+\input{01_PaketeEinstellungen.tex}
+
+% --- Eigene Befehle einbinden
+\input{02_EigeneBefehle.tex}
+
+% --- Variablen importieren
+\input{03_Variablen.tex}
+\newboolean{showEmail}
+\setboolean{showEmail}{\varZeigeEmail}
+\newboolean{showHeader}
+\setboolean{showHeader}{\varZeigeKopfzeile}
+\newboolean{showTOC}
+\setboolean{showTOC}{\varZeigeInhaltsverzeichnis}
+\newboolean{showBibliography}
+\setboolean{showBibliography}{\varZeigeLiteraturverzeichnis}
+
+\begin{document}
+% Überschriften mit Serif-Schriftsatz
+\addtokomafont{sectioning}{\rmfamily}
+% Ändert Schriftgröße und Zeilenabstand bei Captions
+\addtokomafont{caption}{\small\linespread{1}\selectfont}
+% Nummerierung der Formeln entsprechend der Section (z.B. 1.1)
+\numberwithin{equation}{section}
+
+% Kopf- und Fußzeile konfigurieren
+\ifthenelse{\boolean{showHeader}}{
+	% Innenseite der Kopfzeile
+	\ihead{\textit{\varNum\ -- \varName }}
+	% Mitte der Kopfzeile
+	\chead{}
+	% Außenseite der Kopfzeile
+	\ohead{\textit{\varAutor}}
+}{
+	\setheadsepline{0cm}
+	\setlength{\headheight}{0cm}
+	\setlength{\headsep}{0cm}
+}
+% Innnenseite der Fußzeile
+\ifoot{}
+% Mitte der Fußzeile
+\cfoot{- \textit{\pagemark} -}
+% Außenseite der Fußzeile
+\ofoot{}
+
+% Römische Seitenzahlen für Titelseite/Inhaltsverzeichnis
+\pagenumbering{roman}
+
+% --- Titelseite einbinden
+\IfFileExists{04_Titelseite.tex}{
+	\input{04_Titelseite.tex}
+}{}
+
+% --- Inhaltsverzeichnis einbinden
+\ifthenelse{\boolean{showTOC}}{
+	\tableofcontents
+	\clearpage
+}{}
+
+% Zurücksetzen der Seitenzahlen auf arabische Ziffern
+\setcounter{page}{1}
+\pagenumbering{arabic}
+% Ab hier mit Kopf- und Fußzeile
+\pagestyle{scrheadings}
+
+% --- Den Inhalt der Arbeit einbinden
+\input{10_Inhalt.tex}
+
+% --- Anhang einbinden
+\IfFileExists{20_Anhang.tex}{
+	\clearpage
+	\appendix
+	\section{Anhang}
+	\input{20_Anhang.tex}
+}{}
+
+% --- Literaturverzeichnis mit BibLaTeX
+
+\ifthenelse{\boolean{showBibliography}}{
+	\clearpage
+	\printbibliography
+}{}
+
+\end{document}
