@@ -65,7 +65,10 @@ Um dieses für eine Hantel zu bestimmen, hilft der \textbf{Steinerschen Satz}. H
 Es gilt nun für eine Hantel:
 \begin{align}
   J_{\text{Achse}}&=m_1\left( \frac{1}{12}l_1^2+\frac{1}{4}r_1^2 \right) \\
-  J_{\text{Scheiben}}&=m_2\left(\frac{1}{12}l_2^2+\frac{1}{4}(r_2^2+r_1^2)\right) \\
+  J_{\text{Scheiben}}&=m_2\left(\frac{1}{12}l_2^2+\frac{1}{4}(r_2^2+r_1^2)\right)
+  \label{eq:achsescheibe}
+\end{align}
+\begin{align}
   J_{\text{Hantel}}&=J_{\text{Achse}}+2\cdot J_{\text{Scheiben}}+2m_2a^2
   \label{eq:hantel}
 \end{align}
@@ -215,7 +218,7 @@ Wider Erwarten liegt die Differenz zwischen dem Wert für Stab 1 flachkant / hoc
 
 \section{Versuch: Torsionsschwingungen}
 \subsection{Schwingung mit Scheibe}
-An einem Draht der Länge $L=1,739 \pm 0,002 m$ und dem Durchmesser $d_{Draht}= 0,49 \pm 0,01 mm$ wird eine Scheibe mit dem Radius $R_{Scheibe}= 7,1 \pm 0,05 cm$ und mit der Masse $m_{Scheibe}=2648g$ (angegebener Wert) angehängt und nach einer Auslenkung von $\phi =180$° wird die Dauer für 3 Schwingungsperioden bestimmt.
+An einem Draht der Länge $L=1,739 \pm 0,002 m$ und dem Durchmesser $d_{Draht}= 0,49 \pm 0,01 mm$ wird eine Scheibe mit dem Radius $R_{Scheibe}= 7,1 \pm 0,05 cm$ und mit der Masse $m_{Scheibe}=2648g$ (angegebener Wert) angehängt und nach einer Auslenkung von $\phi =180$° wird die Dauer für 3 Schwingungsperioden bestimmt. Der Durchmesser $d_{Draht}$ wurde durch 5 Messungen an verschiedenen Stellen mit einer Mikrometerschraube bestimmt. Aufgrund der geringen Abweichungen wird er über die gesamte Länge des Drahtes als konstant angenommen.
 \begin{table}[H]
   \centering
   \begin{tabular}{l | c | c | c | c}
@@ -225,20 +228,19 @@ An einem Draht der Länge $L=1,739 \pm 0,002 m$ und dem Durchmesser $d_{Draht}= 
   \caption{Schwingungsdauer für drei Perioden mit angehängter Scheibe}
   \label{tab:schwingdauerscheibe}
 \end{table}
-Im weiteren wird Messung $1$ nicht weiter betrachtet, da ihr Wert deutlich von den anderen Werten abweicht und ein grober Messfehler vorliegt.
+Im weiteren wird Messung $1$ nicht weiter betrachtet, da ihr Wert deutlich von den anderen Werten abweicht und wahrscheinlich ein grober Messfehler vorliegt.
 
-So ergibt sich eine durchschnittliche  Schwingungsdauer von $\overline{t}=91,18s$.
+So ergibt sich eine durchschnittliche  Schwingungsdauer von $\overline{t}=\SI{91.18(23)}{s}$.
 
-Zu Bestimmung des Schubmoduls muss nun die Formel \ref{eq:j_scheibe} in \ref{eq:schubmod} einsetzen und erhält:
+Zu Bestimmung des Schubmoduls muss man die Formel \ref{eq:j_scheibe} in \ref{eq:schubmod} einsetzen und erhält:
 
 \begin{equation}
 G_{Scheibe}=\frac{4\pi LmR_{Scheibe}^2}{R^4T^2}= \frac{4\pi\cdot1,739m\cdot2,648kg\cdot(0,071m)^2}{(0,00049m)^4\frac{91,18s}{3}^2}=\num{5,47d9} \frac{N}{m^2}
 \end{equation}
-Der Messfehler ist
+Mit Messfehler lautet der Wert
 \begin{equation}
-\begin{split}
-\Delta G_{Scheibe}=[\frac{4\pi mR_{Scheibe}^2}{R^4T^2}\cdot\Delta L)^2+(\frac{4\pi R_{Scheibe}mL}{R^4T^2}\cdot\Delta R_{Scheibe})^2\\+(-\frac{\pi mLR_{Scheibe}^2}{R^5T^2}\cdot\Delta R)^2+(-\frac{2\pi mRL_{Scheibe}^2}{R^4T^3}\cdot\Delta T)^2]^{\frac{1}{2}}\\=\num{9,09d7}\frac{N}{m^2}
-\end{split}
+  G_{Scheibe}=\SI{5.47(9)e9}{N/m^2}
+  \label{eq:schubmodulergebnis}
 \end{equation}
 und der relative Fehler ist
 \begin{equation}
@@ -249,7 +251,7 @@ Nun wird der Versuchsablauf von ,,Schwingung mit Scheibe'' wiederholt, jedoch wi
 
 Die Hantelstange hat eine Masse von $m_{1}=239,05g$ (angegeben), Länge von $l_{1}=25 \pm 0,1 cm$ und einen Radius von $R_{1}=5,99 \pm 0,01mm$.
 Die Gewichte sind Zylinder mit einer Masse von $m_{2}=305,2g$ (angegeben), einem Radius von $\overline{R}_{2}=2,5 cm$ und einer Höhe von $\overline{l}_2=19,8mm$.
-Durch das reduzieren der angehängten Masse hat sich der Draht nun auf $\overline{L}=1,738 m$ verkürzt.
+Durch das Reduzieren der angehängten Masse hat sich der Draht nun auf $\overline{L}=\SI{1.738(2)}{cm}$ verkürzt.
 \begin{table}[H]
   \centering
   \begin{tabular}{l | c | c | c }
@@ -259,7 +261,9 @@ Durch das reduzieren der angehängten Masse hat sich der Draht nun auf $\overlin
   \caption{Schwingungsdauer für drei Perioden mit angehängter Hantelstange ohne Gewichte}
   \label{tab:schwingdauerstange}
 \end{table}
-So ergibt sich eine durchschnittliche Periode von $t_{Stange}=12,19s$
+So ergibt sich eine durchschnittliche Periode von $t_{Stange}=\SI{12.19(10)}{s}$
+
+Die Gewichte werden nun in 5 verschiedene Positionen auf der Hantelachse eingerastet und der Abstand der Gewichte zum Aufhängepunkt wird jeweils mit einem Lineal gemessen.
 \begin{table}[H]
   \centering
   \begin{tabular}{l | c | c | c | c | c}
@@ -269,6 +273,7 @@ So ergibt sich eine durchschnittliche Periode von $t_{Stange}=12,19s$
   \caption{Abstand der einzelnen Massenpositionen zum Aufhängepunkt}
   \label{tab:Abstandgewichte}
 \end{table}
+Anschließend wird in jeder Konfiguration die Schwingungsdauer für drei Perioden ermittelt:
 \begin{table}[H]
   \centering
   \begin{tabular}{l | c | c | c | c | c}
@@ -285,20 +290,20 @@ So ergibt sich eine durchschnittliche Periode von $t_{Stange}=12,19s$
     \begin{axis}[
       width=15 cm,
       height=10 cm,
-      xmin=0, xmax=80000,
-      ymin=0, ymax=1230,
-      xlabel={Trägeheitsfaktor [$g\cdot cm^2$]},
-      ylabel={Periodenquadrat [$s^2$]},
-      legend entries={Stab 1 flachkant}
+      xmin=0, xmax=81000,
+      ymin=0, ymax=1250,
+      xlabel={Trägheitsfaktor $2ma^2$ [$g\cdot cm^2$]},
+      ylabel={Periodenquadrat $T^2$ [$s^2$]}
     ]
       \addplot[mark=square, only marks, error bars/.cd, y dir=both, y fixed=0.5] table {schwingunghantel.txt};
       
     \end{axis}
   \end{tikzpicture}
   \caption{,,Steinerscher Trägheitsfaktor'' $2ma^2$ gegen Periodendauerquadrat aufgetragen}
-  \label{fig:durchbiegung}
+  \label{fig:schwingungsdauer}
 \end{figure}
-Wie aus den Formeln zu erwarten scheint ein linearer Zusammenhang zwischen den Abstandsquadrat ($a^2$) und dem Periodenquadrat zu bestehen. Und es gibt einen Y-Achsenabschnitt der größer als $10s$ ist.
+Die Fehlerbalken in \cref{fig:schwingungsdauer} sind recht kurz und fallen deshalb optisch mit dem Punkt überein.
+Wie aus Formel~\cref{eq:hanteldauer} zu erwarten scheint ein linearer Zusammenhang zwischen dem Quadrat des Abstandes ($a^2$) und dem Periodenquadrat $T^2$ zu bestehen.
 
 Mit \emph{gnuplot} werden nach dem \emph{least-squares}-Verfahren die Werte gegen die Funktion $f(x)=m\cdot x+b$ gefittet. Ausgabe:
 
@@ -306,7 +311,7 @@ Mit \emph{gnuplot} werden nach dem \emph{least-squares}-Verfahren die Werte gege
   \centering
   \begin{tabular}{l | c | c}
     Variabel & Wert \\ \hline
-    m & \num{1.292d-2} $\pm 0.0005$ \\
+    m & \num{1.292\pm 0.001e-2} \\
     b & \num{187\pm 6.352} 
   \end{tabular}
   \caption{Linearer Fit}
@@ -315,35 +320,36 @@ Mit \emph{gnuplot} werden nach dem \emph{least-squares}-Verfahren die Werte gege
 
 Wir stellen nun \cref{eq:hanteldauer} um:
 \begin{align}
-  T^2&=\frac{4\pi^2}{D^*}(J_{\text{Achse}}+2\cdot J_{\text{Scheiben}}+2m_2a^2) \\
+  T^2&=\frac{4\pi^2}{D^*}(J_{\text{Achse}}+2\cdot J_{\text{Scheibe}}+2m_2a^2) \\
   &=m\cdot (2m_2 a^2)+b \\
   \implies D^*&=\frac{4\pi^2}{m} \\
-  \implies J_2 &=\frac{1}{2}\left(\frac{D^*}{4 \pi^2}\cdot b - J_1\right)
+  \implies J_{\text{Scheibe}} &=\frac{1}{2}\left(\frac{D^*}{4 \pi^2}\cdot b - J_{\text{Achse}}\right)
   \label{eq:hantelergebnis}
 \end{align}
 und aus der Schwingung ohne Scheiben:
 \begin{equation}
-  J_1 = \frac{T^2 D^*}{4 \pi^2}
+  J_{\text{Achse}} = \frac{T^2 D^*}{4 \pi^2}
   \label{eq:hantelohnescheibe}
 \end{equation}
 \begin{table}[H]
   \centering
   \begin{tabular}{l | c | c | c}
-    &$D^*$ & $J_1$ & $J_2$ \\ \hline
-    aus Fit berechnet & \SI{3.056e-4}{Nm} & \SI{1.15}{gm^2} & \SI{0.149}{gm^2} \\
-    aus Abmessungen berechnet & - & \SI{1.247}{gm^2} & \SI{0.0604}{gm^2}
+    &$D^*$ & $J_{\text{Achse}}$ & $J_{\text{Scheibe}}$ \\ \hline
+    aus Fit berechnet & \SI{3.056(1)e-4}{Nm} & \SI{1.15(2)}{gm^2} & \SI{0.149(724)}{gm^2} \\
+    aus Abmessungen & - & \SI{1.247(10)}{gm^2} & \SI{0.0604(38)}{gm^2}
   \end{tabular}
   \caption{Ergebnisse zur Hantelschwingung}
   \label{tab:hantelergebnisse}
 \end{table}
-\section{Auswertung}
+Als Vergleichswert wurden mit \cref{eq:achsescheibe} die Trägheitsmomente direkt über die Abmessungen berechnet.
+\section{Diskussion}
 \subsection{Versuch: Elastische Biegung}
 Da es sich beim Elastizitätsmodul um eine Materialgröße handelt, sollte diese unabhängig von der Art des Einspannens seien. Dies hat sich in unserer Messung nicht bestätigt:
 \begin{equation}
-  &E_{1,\text{flach}}-E_{1,\text{hoch}} = \SI{2.2(8)e1}{kN/mm^2}
+  E_{1,\text{flach}}-E_{1,\text{hoch}} = \SI{2.2(8)e1}{kN/mm^2}
   \label{eq:elastifalsch}
 \end{equation}
-Grund dafür ist. dass die Methode zur Ablesung der Durchbiegung nur eine signifikante Stelle geliefert hat, denn mit dem Auge sind Längenunterschiede $<\SI{1}{mm}$ schlecht zu erkennen. Dieser Unterschied liegt außerhalb des berecheten Fehlers, weil wie die Unsicherheiten der Eingabedaten für den \emph{gnuplot}-Fit nicht fortpflanzen können (der von gnuplot ausgegebene Fehler bezieht sich nur auf die Ungenauigkeit des Algorithmus, aber die Eingabedaten werden als exakt angenommen).
+Grund dafür ist, dass die Methode zur Ablesung der Durchbiegung nur eine signifikante Stelle geliefert hat, denn mit dem Auge sind Längenunterschiede $<\SI{1}{mm}$ schlecht zu erkennen. Dieser Unterschied liegt außerhalb des berecheten Fehlers, weil wie die Unsicherheiten der Eingabedaten für den \emph{gnuplot}-Fit nicht fortpflanzen können (der von gnuplot ausgegebene Fehler bezieht sich nur auf die Ungenauigkeit des Algorithmus, aber die Eingabedaten werden als exakt angenommen).
 Sinvoll ausgesagt werden kann, dass der gefühlt leichteste Stab 3 einen deutlich geringeren Elastizitätsmodul hat als der schwerste Stab 4:
 \begin{equation}
   \Delta E_{34}=\SI{200}{kN/mm^2} - \SI{80}{kN/mm^2}=\SI{120}{kN/mm^2}
