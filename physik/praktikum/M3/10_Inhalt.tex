@@ -14,55 +14,37 @@ Bei einer Scherkraft lautet es
   \tau = G\alpha,
   \label{eq:hookscher}
 \end{equation}
-wobei $\tau$ die Schubspannung, $G$ das Schubmodul und $\alpha$ der Scherwinkel sind. \\
+wobei $\tau$ die Schubspannung, $G$ der Schubmodul und $\alpha$ der Scherwinkel sind. \\
 
 Neben einer Längenänderung kommt es auch zu einer Verkürung der Querabmessung $R$ (z.B. Radius). Die \textbf{Poissonzahl / Querkontraktionszahl} gibt das Verhältnis der relativen Änderungen an:
 \begin{equation}
   \mu=-\frac{\Delta R/R}{\Delta L/L}
   \label{eq:poisson}
 \end{equation}
-Wird ein allseitiger Druck $p$ auf einen Körper ausgeübt, so heisst der Proportionalitätsfaktor zur relativen Volumenänderung \textbf{Kompressionsmodul} ($K$):
-\begin{equation}
-  p=-K \frac{\Delta V}{V}
-  \label{eq:kompression}
-\end{equation}
 Die Größen $E, \mu, G, K$ sind also Materialkonstanten, die das Verhalten eines Körpers unter äußeren Verformungskräften beschreiben, solange diese elastisch bleiben. \\
 
-Wird ein Körper an einem Ende festgespannt und am anderen, freien Ende eine Kraft angelegt, so spricht man von einer \textbf{Elastischen Biegung}.
-Dem äußeren Drehmoment
+Wird ein Körper an einem Ende festgespannt und am anderen, freien Ende eine Kraft $F$ angelegt, so spricht man von einer \textbf{Elastischen Biegung}.
+Die maximale Durchbiegung am freien Ende des Stabes ist
 \begin{equation}
-  M_a=(L-z)F
-  \label{eq:drehmom}
+  h_{\text{max}}=\frac{F}{E I_q}\frac{L^3}{3}
+  \label{eq:maxbiegung}
 \end{equation}
-($L$ Länge des Körpers, $z$ Abstand von festem Ende) wird ein inneres Drehmoment entgegengesetzt, welches sich berechnen lässt als
-\begin{equation}
-  M_i=\frac{E}{R}\cdot I_q
-  \label{eq:in_drehmom}
-\end{equation}
-($E$ Elastizitätsmodul, $R$ lokaler Krümmungsradius). Dabei ist $I_q$ das Flächenträgheitsmoment, welches vom Querschnitt des Körpers abhängt:
+($L$ Länge des Körpers, $z$ Abstand von festem Endek, $E$ Elastizitätsmodul, $R$ lokaler Krümmungsradius). Dabei ist $I_q$ das Flächenträgheitsmoment, welches vom Querschnitt des Körpers abhängt:
 \begin{align}
   I_q &= \int y^2 \, \mathrm{d}A \\
   I_{\text{Kreis}}&=\frac{\pi d^4}{64} \qquad \text{$d$ Durchmesser} \\
   I_{\text{Rechteck}}&=\frac{ab^3}{12} \qquad \text{$a$ senkrechte Kantenlänge, $b$ parallele}
   \label{eq:flaechentraegheit}
 \end{align}
-Die maximale Durchbiegung am freien Ende des Stabes ist
-\begin{equation}
-  h_{\text{max}}=\frac{F}{E I_q}\frac{L^3}{3}
-  \label{eq:maxbiegung}
-\end{equation}
 \\
-Eine \textbf{Elastische Torsion} ist eine Verdrillung eines zylindrischen Stabes (Radius $R$, Länge $L$) um eine Torsionswinkel $\varphi$. Es können wieder äußeres und inneres Drehmoment gleichgesetzt werden:
+Eine \textbf{Elastische Torsion} ist eine Verdrillung eines zylindrischen Stabes (Radius $R$, Länge $L$) um eine Torsionswinkel $\varphi$.
+Hängt man einen Körper mit Trägheitsmoment $J$ an den Stab und verdreht diesen um $\varphi$, so kommt es zu einer harmonischen Schwingung.
+Dabei wirkt ein Direktionsmomment $D^*$ der Auslenkung entgenen:
 \begin{equation}
-  M_a = RF=\frac{\pi G R^4}{2L}\varphi=M_i
-  \label{eq:torsion_drehmom}
+  D^*=\frac{\pi G R^4}{2L}
+  \label{eq:direktionsmoment}
 \end{equation}
-Hängt man einen Körper mit Trägheitsmoment $J$ an den Stab und verdreht diesen um $\varphi$, so kommt es zu einer harmonischen Schwingung:
-\begin{equation}
-  0=J\ddot{\varphi}+D^* \varphi
-  \label{eq:schwingung}
-\end{equation}
-$D^*$ heisst Direktionsmoment. Aus der Periodendauer $T$ kann das Schubmodul errechnet werden:
+Aus der Periodendauer $T$ kann der Schubmodul errechnet werden:
 \begin{equation}
   G= \frac{8\pi LJ}{R^4T^2}
   \label{eq:schubmod}
@@ -73,6 +55,8 @@ Das zur Rechnung benötigte Trägheitsmoment lautet für eine Scheibe mit Masse 
   J_{\text{Scheibe}}=\frac{1}{2}mR^2
   \label{eq:j_scheibe}
 \end{equation}
+
+
 Um dieses für eine Hantel zu bestimmen, hilft der \textbf{Steinerschen Satz}. Hat ein Körper mit Masse $m$ ein Trägheitsmoment $J_S$ bez. eines Punktes $S$, der im Abstand $a$ zu einem zweiten Punkt $A$ liegt, so lautet das Trägheitsmoment bez. $A$:
 \begin{equation}
   J_A=J_S+a^2m
@@ -85,11 +69,12 @@ Es gilt nun für eine Hantel:
   J_{\text{Hantel}}&=J_{\text{Achse}}+2\cdot J_{\text{Scheiben}}+2m_2a^2
   \label{eq:hantel}
 \end{align}
-Wird diese als Torsionspendel genutzt, ergibt sich für die Schwigung folgende Beziehung zwischen Periodendauer und Abstand der Scheiben:
-\begin{equation}
-  T^2=\frac{4\pi^2}{D^*}(J_{\text{Achse}}+2\cdot J_{\text{Scheiben}}+2m_2a^2)
+Wird diese als Torsionspendel genutzt, ergibt sich für die Schwingung folgende Beziehung zwischen Periodendauer und Abstand der Scheiben:
+\begin{align}
+  T^2&=\frac{4\pi^2}{D^*}(J_{\text{Achse}}+2\cdot J_{\text{Scheiben}}+2m_2a^2) \\
+  \implies T&=\frac{2\pi}{\sqrt{D^*}}\sqrt{J_{\text{Achse}}+2\cdot J_{\text{Scheiben}}+2m_2a^2}
   \label{eq:hanteldauer}
-\end{equation}
+\end{align}
 \section{Versuch: Elastische Biegung}
 Es wurden 4 Metallstäbe zur Verfügung gestellt:
 \begin{table}[h]
@@ -109,16 +94,17 @@ Mit einer Mikrometerschraube wurde die Dicke der Stäbe an 5 verschiedenen Stell
 \begin{table}[H]
   \centering
   \begin{tabular}{l | c | c | r}
-    \# & Mittelwert [mm] & Standardabweichung [mm] & Fehler [$\pm$mm] \\ \hline
-    1 flachkant & \num{1.96} & \num{0.007} & \num{0.002} \\
-    1 hochkant & \num{4.96} & \num{0.008} & \num{0.002} \\
-    2 & \num{2.93} & \num{0.012} & \num{0.003} \\
-    3 & \num{2.94} & \num{0.006} & \num{0.002} \\
-    4 & \num{2.95} & \num{0.012} & \num{0.003}
+    \# & Mittelwert [mm] & Standardabweichung [mm] & relativer Fehler \\ \hline
+    1 flachkant & \num{1.96} & \num{0.007} & \SI{.36}{\percent} \\
+    1 hochkant & \num{4.96} & \num{0.008} & \SI{.16}{\percent} \\
+    2 & \num{2.93} & \num{0.012} & \SI{0.41}{\percent} \\
+    3 & \num{2.94} & \num{0.006} & \SI{0.20}{\percent} \\
+    4 & \num{2.95} & \num{0.012} & \SI{.41}{\percent}
   \end{tabular}
   \caption{Dicke der Stäbe}
   \label{tab:stabdicke}
 \end{table}
+Da der relative Fehler sehr gering ist (jeweils $<\SI{.5}{\percent}$), nehmen wir im folgenden an, dass die Dicke der Stäbe über die gesamte Länge konstant gleich dem Mittelwert ist.
 
 Die Länge der Stäbe wurde mit einem Maßband gemessen (Fehler jeweils $\pm \SI{0.1}{\cm}$):
 \begin{table}[H]
@@ -146,32 +132,40 @@ Die Erwartung ist, dass die Stäbe sich bei höherem angehängten Gewicht stärk
   \centering
   \begin{tabular}{l | c | c | c | c | r}
     \# & \SI{5}{g} [mm] & \SI{10}{g} [mm] & \SI{20}{g} [mm] & \SI{50}{g} [mm] & \SI{100}{g} [mm] \\ \hline
-    1 flachkant & 1 & 3 & 6 & 14 & 27 \\
-    1 hochkant & 0 & 1 & 2 & 3 & 5 \\
-    2 & 1 & 2 & 4 & 11 & 22 \\
-    3 & 2 & 4 & 7 & 16 & 31 \\
-    4 & 1 & 2 & 3 & 5 & 10
+    1 flachkant & \num{1.0} & \num{3.0} & \num{6.0} & \num{14.0} & \num{27.0} \\
+    1 hochkant & \num{0.0} & \num{1.0} & \num{2.0} & \num{3.0} & \num{5.0} \\
+    2 & \num{1.0} & \num{2.0} & \num{4.0} & \num{11.0} & \num{22.0} \\
+    3 & \num{2.0} & \num{4.0} & \num{7.0} & \num{16.0} & \num{31.0} \\
+    4 & \num{1.0} & \num{2.0} & \num{3.0} & \num{5.0} & \num{10.0}
   \end{tabular}
   \caption{Messergebnis zur Durchbiegung}
   \label{tab:durchbiegung}
 \end{table}
+Der Fehler wird geschätzt auf jeweils \SI{\pm .5}{mm}.
 \begin{figure}[H]
   \centering
   \begin{tikzpicture}
     \begin{axis}[
       width=15 cm,
-      height=10 cm,
-      xmin=0, xmax=100,
-      ymin=0, ymax=35,
-      xlabel={Gewicht [g]},
-      ylabel={Durchbiegung [mm]},
-      legend entries={Stab 1 flachkant, Stab 1 hochkant, Stab 2, Stab 3, Stab 4}
+      height=14 cm,
+      xmin=0, xmax=105,
+      ymin=-1, ymax=35,
+      xlabel={angehängte Masse $m$ in \si{g}},
+      ylabel={Durchbiegung $h$ \si{mm}},
+      legend entries={Stab 1 flachkant, Stab 1 hochkant, Stab 2, Stab 3, Stab 4},
+      legend style={legend pos=north west}
     ]
-      \addplot[mark=square, only marks, error bars/.cd, y dir=both, y fixed=0.5] table {stab1flach.txt};
-      \addplot[mark=*, only marks, error bars/.cd, y dir=both, y fixed=0.5] table {stab1hoch.txt};
-      \addplot[mark=x, only marks, error bars/.cd, y dir=both, y fixed=0.5] table {stab2.txt};
-      \addplot[mark=+, only marks, error bars/.cd, y dir=both, y fixed=0.5] table {stab3.txt};
-      \addplot[mark=otimes, only marks, error bars/.cd, y dir=both, y fixed=0.5] table {stab4.txt};
+      \addplot+[only marks, error bars/.cd, y dir=both, y fixed=0.5] table {stab1flach.txt};
+      \addplot+[only marks, error bars/.cd, y dir=both, y fixed=0.5] table {stab1hoch.txt};
+      \addplot+[only marks, error bars/.cd, y dir=both, y fixed=0.5] table {stab2.txt};
+      \addplot+[only marks, error bars/.cd, y dir=both, y fixed=0.5] table {stab3.txt};
+      \addplot+[only marks, error bars/.cd, y dir=both, y fixed=0.5] table {stab4.txt};
+      \pgfplotsset{cycle list shift=-5}
+      \addplot+[mark=none, domain=0:100] {0.27*x};
+      \addplot+[mark=none, domain=0:100] {0.054*x};
+      \addplot+[mark=none, domain=0:100] {0.22*x};
+      \addplot+[mark=none, domain=0:100] {0.31*x};
+      \addplot+[mark=none, domain=0:100] {0.10*x};
     \end{axis}
   \end{tikzpicture}
   \caption{Messergebnis zur Durchbiegung}
@@ -184,73 +178,41 @@ Mit \emph{gnuplot} werden nach dem \emph{least-squares}-Verfahren die Werte der 
 \begin{table}[H]
   \centering
   \begin{tabular}{l | c | c}
-    \# & a [\si{mm/g}] & Varianz der Residuen \\ \hline
-    1 flachkant & \num{0.3} & \num{0.2} \\
-    1 hochkant & \num{0.05} & \num{0.3} \\
-    2 & \num{0.2} & \num{0.1} \\
-    3 & \num{0.3} & \num{.4} \\
-    4 & \num{.1} & \num{.5}
+    \# & a [\si{mm/g}]  \\ \hline
+    1 flachkant & \num{0.27(1)} \\
+    1 hochkant & \num{0.054(5)} \\
+    2 & \num{.22(1)} \\
+    3 & \num{0.31(1)} \\
+    4 & \num{.10(1)}
   \end{tabular}
   \caption{Linearer Fit der Durchbiegung}
   \label{tab:durchbiegungsfit}
 \end{table}
-Der von gnuplot berechnete Fehler liegt jeweils außerhalb der signifikanten Stellen.
 
 \cref{eq:maxbiegung} wird umgestellt zu 
 \begin{align}
   h_{\text{max}}&=a\cdot m \implies a = \frac{gL^3}{3EI_q} \\
-  \implies E&=\frac{mg}{aI_q}\frac{L^3}{3}
+  \implies E&=\frac{g}{aI_q}\frac{L^3}{3}
   \label{eq:durchbieg_elasti}
 \end{align}
-und aus der Steigung das Elastizitätsmodul berechnet. Es wird erwartet, dass für Stab 1 flachkant dasselbe Elastizitätsmodul gilt wie für Stab 1 hochkant, da diese eine Materialgröße ist, die unabhängig von der Art der Einspannung sein sollte.
+und aus der Steigung $a$ der Elastizitätsmodul berechnet. Es wird erwartet, dass für Stab 1 flachkant derselbe Elastizitätsmodul gilt wie für Stab 1 hochkant, da diese eine Materialgröße ist, die unabhängig von der Art der Einspannung sein sollte.
 \begin{table}[H]
   \centering
   \begin{tabular}{l | c}
     \# & Elastizitätsmodul [\si{kN/mm^2}] \\ \hline
-    1 flachkant & \num{9 \pm 1.5e1} \\
-    1 hochkant & \num{8 \pm 0.84e1} \\
-    2 & \num{1 \pm 0.5e2} \\
-    3 & \num{8 \pm 1.3e1} \\
-    4 & \num{2 \pm 1.1e2}
+    1 flachkant & \num{9.9(4)e1} \\
+    1 hochkant & \num{7.7(7)e1} \\
+    2 & \num{1.1(1)e2} \\
+    3 & \num{7.6(3)e1} \\
+    4 & \num{2.2(2)e2}
   \end{tabular}
   \caption{Elastizitätsmodul berechnet aus Steigung}
   \label{tab:elastimodul}
 \end{table}
 
-Wie erwartet liegt die Differenz zwischen dem Wert für Stab 1 flachkant / hochkant innherhalb des Fehlerbereiches. Die Fehler von Stab 2 und 4 sind relativ gesehen groß, sodass ein Vergleich untereinander sinnlos ist:
+Wider Erwarten liegt die Differenz zwischen dem Wert für Stab 1 flachkant / hochkant nicht innherhalb des Fehlerbereiches. Die aufgrund des gefühlten Gewichtes erwartete Reihenfolge der Elastizitätsmodule (Stab 4 > Stab 2 > Stab 3) ist eingetreten.
 
-\begin{align}
-  E_{\text{rel}, 2}&=\frac{\num{.5}}{1}=50\% \\
-  E_{\text{rel}, 4}&=\frac{\num{1.1}}{2}=55\%
-  \label{eq:elastifehler}
-\end{align}
 
-Grund dafür ist, dass es nur eine signifikante Stelle in der Durchbiegungsmessung (\cref{tab:durchbiegung}) gibt.
-Sinvoll ausgesagt werden kann, dass der gefühlt leichteste Stab 3 einen deutlich geringeres Elastizitätsmodul hat als der schwerste Stab 4:
-\begin{equation}
-  \Delta E_{34}=\SI{200}{kN/mm^2} - \SI{80}{kN/mm^2}=\SI{120}{kN/mm^2}
-  \label{eq:elastidiff34}
-\end{equation}
-
-Laut \footcite{ingenieurwissen} ist das Elastizitätsmodul für verschiedene Werkstoffe:
-
-\begin{table}[H]
-  \centering
-  \begin{tabular}{l | c}
-    Stoff & Elastizitätsmodul [\si{kN/mm^2}] \\ \hline
-    Nickellegierungen & 150\ldots 222 \\
-    Gusseisen & 66\ldots 172 \\
-    Kuper & 100 \ldots 130 \\
-    Bronze & 105 \ldots 124 \\
-    Messing & 78 \ldots 123 \\
-    Aluminiumlegierungen & 68 \ldots 82 \\
-    Magnesiumlegierungen & 42 \ldots 47
-  \end{tabular}
-  \caption{Literaturwerte für Elastizitätsmodul}
-  \label{tab:litwertelasti}
-\end{table}
-
-Stab 1 liegt im Bereich von Messing, während Stab 3 im Bereich von Aluminiumlegierungen liegt. Beides deckt sich mit dem Aussehen. Bei Stab 2 und 4 ist der Fehler zu hoch, als das die Werte sinnvoll verglichen werden könnten, allerdings legt das sehr ähnliche Aussehen nahe, dass Stab 2 genauso wie Stab 1 aus Messing besteht, während Gewicht und Aussehen von Stab 4 auf Gusseisen hindeuten.
 \section{Versuch: Torsionsschwingungen}
 \subsection{Schwingung mit Scheibe}
 An einem Draht der Länge $L=1,739 \pm 0,002 m$ und dem Durchmesser $d_{Draht}= 0,49 \pm 0,01 mm$ wird eine Scheibe mit dem Radius $R_{Scheibe}= 7,1 \pm 0,05 cm$ und mit der Masse $m_{Scheibe}=2648g$ (angegebener Wert) angehängt und nach einer Auslenkung von $\phi =180$° wird die Dauer für 3 Schwingungsperioden bestimmt.
@@ -374,3 +336,62 @@ und aus der Schwingung ohne Scheiben:
   \caption{Ergebnisse zur Hantelschwingung}
   \label{tab:hantelergebnisse}
 \end{table}
+\section{Auswertung}
+\subsection{Versuch: Elastische Biegung}
+Da es sich beim Elastizitätsmodul um eine Materialgröße handelt, sollte diese unabhängig von der Art des Einspannens seien. Dies hat sich in unserer Messung nicht bestätigt:
+\begin{equation}
+  &E_{1,\text{flach}}-E_{1,\text{hoch}} = \SI{2.2(8)e1}{kN/mm^2}
+  \label{eq:elastifalsch}
+\end{equation}
+Grund dafür ist. dass die Methode zur Ablesung der Durchbiegung nur eine signifikante Stelle geliefert hat, denn mit dem Auge sind Längenunterschiede $<\SI{1}{mm}$ schlecht zu erkennen. Dieser Unterschied liegt außerhalb des berecheten Fehlers, weil wie die Unsicherheiten der Eingabedaten für den \emph{gnuplot}-Fit nicht fortpflanzen können (der von gnuplot ausgegebene Fehler bezieht sich nur auf die Ungenauigkeit des Algorithmus, aber die Eingabedaten werden als exakt angenommen).
+Sinvoll ausgesagt werden kann, dass der gefühlt leichteste Stab 3 einen deutlich geringeren Elastizitätsmodul hat als der schwerste Stab 4:
+\begin{equation}
+  \Delta E_{34}=\SI{200}{kN/mm^2} - \SI{80}{kN/mm^2}=\SI{120}{kN/mm^2}
+  \label{eq:elastidiff34}
+\end{equation}
+Laut \footcite{ingenieurwissen} ist der Elastizitätsmodul für verschiedene Werkstoffe:
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l | c}
+    Stoff & Elastizitätsmodul [\si{kN/mm^2}] \\ \hline
+    Nickellegierungen & 150\ldots 222 \\
+    Gusseisen & 66\ldots 172 \\
+    Kupfer & 100 \ldots 130 \\
+    Bronze & 105 \ldots 124 \\
+    Messing & 78 \ldots 123 \\
+    Aluminiumlegierungen & 68 \ldots 82 \\
+    Magnesiumlegierungen & 42 \ldots 47
+  \end{tabular}
+  \caption{Literaturwerte für Elastizitätsmodul}
+  \label{tab:litwertelasti}
+\end{table}
+
+Stab 1 liegt im Bereich von Messing, während Stab 3 im Bereich von Aluminiumlegierungen liegt. Beides deckt sich mit der Farbe. Bei Stab 2 und 4 ist der Fehler zu hoch, als das die Werte sinnvoll verglichen werden könnten, allerdings legt die sehr ähnliche Farbe nahe, dass Stab 2 genauso wie Stab 1 aus Messing besteht, während Gewicht und Aussehen von Stab 4 auf Gusseisen hindeuten.
+Dadurch das sämtlichen Stäben ein Material, welches zu den übrigen Erscheinungsmerkmalen passt, zugeordnet werden konnte, kann man davon ausgehen, dass trotz der teilweise ungenauen Messung, Auslenkung eines Stabes, die Messung gelungen ist.
+\subsection{Torsionsschwingung mit Scheibe}
+Laut \footcite{elektrotechnik} ist der Schubmodul von verschiedenen Werkstoffen:
+
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l | c}
+    Stoff & Schubmodul $G_M$ [$10^4MPa$] \\ \hline
+    Magnesium & 1,7 \\
+    Aluminium & 2,6 \\
+    Titan & 4,5 \\
+    Kupfer & 4,6 \\
+    Nickel & 7,6 \\
+    Stahl & 8,3 \\
+    Wolfram & 16,0
+  \end{tabular}
+  \caption{Literaturwerte für Schubmodul}
+  \label{tab:litwertschub}
+\end{table}
+
+Leider wurde durch unsere Messung ein Schubmodul von $G=0,547\cdot10^4 MPa$ bestimmt. Dieser Wert liegt außerhalb der angegebenen Tabelle und liegt eher im Bereich von Plastiken. Da der Stab jedoch aus einem glänzendem Metall bestand, ist es anzunehmen, dass im Laufe der Bestimmung eine 10er-Potenz verloren gegangen ist. Der richtige Wert sollte eher bei $G_{soll}=5,47\cdot10^4 MPa$ liegen, was dann für einen Draht aus Nickel oder ähnlichem Metall spräche.
+
+\subsection{Torsionsschwingung mit Hantel}
+Bei der Bestimmung der Trägheitsmomente $J_1$ und $J_2$ wurden zwei unterschiedliche Verfahren gewählt, die beim der Bestimmung von $J_1$, dem Trägheitsmoment der Stange, noch vergleichbare Ergebnisse geliefert haben. So liegt $\Delta J_1$ bei nur $0,97gm^2$, dies entspricht gerade mal einem $0,08\%$ relativem Fehler, was ein gutes Ergebnis ist.
+Bei der Bestimmung von $J_2$ ist die ablsolute Differenz ähnlich klein, $\Delta J_2=0,089g^2$, dies ist entspricht aber einem relativen Fehler von über $200\%$, deutlich zu groß ist. 
+Bei der Bestimmung ist der Methode über das Fitten, die sehr kleinen Werte des Trägheitsmomentes der Hantelscheiben zum Verhängnis geworden.
