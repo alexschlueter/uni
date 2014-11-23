@@ -1,0 +1,166 @@
+\section{Einführung}
+Ein \textbf{Federpendel} besteht aus einer Feder mit Federkonstante $D$, an der eine Waagschale mit einer aufgelegten Masse $m$ hängt. Wird diese aus der Ruheposition um $x$ ausgelenkt, so wirkt eine Rückstellkraft $F$ der Auslenkung entgegen. Nach dem \textbf{Hookeschen Gesetz} ist der Zusammenhang linear:
+\begin{equation}
+  m\ddot{x}=F=-D x
+  \label{eq:hook}
+\end{equation}
+Da die Feder mit der Waagschale eine Eigenmasse $m_F$ besitzt, ist folgender Ansatz realistischer:
+\begin{equation}
+  (m+m_F/3)\ddot{x}=-D x
+  \label{eq:hookreal}
+\end{equation}
+Mit den Anfangsbedingungen $x(0)=x_0$, $\dot{x}(0)=0$ lautet die Lösung der Bewegungsgleichung
+\begin{equation}
+  x(t)=x_0 \cos\left(\sqrt{\frac{D}{m+m_F/3}}\cdot t\right).
+  \label{eq:federloesung}
+\end{equation}
+Die Feder führt also harmonische Schwingungen aus. Aus der Periodendauer $T$ kann die Federkonstante bestimmt werden:
+\begin{equation}
+  D=\frac{4\pi^2}{T^2}\left(m+\frac{m_F}{3}\right)
+  \label{eq:federkonst}
+\end{equation}
+
+Ein \textbf{Mathematisches Pendel} ist ein Fadenpendel der Länge $l$, wobei angenommen wird, dass der Faden masselos ist, die gesamte Masse im Schwerpunkt vereinigt ist und die Bewegung reibungsfrei abläuft. Als Rückstellkraft bei einer Auslenkung um einen Winkel $\varphi$ wirkt die Schwerkraft $F_\varphi=-mg\sin\varphi\approx -mg\varphi$. Die Bewegungsgleichung und Lösung lauten dann:
+\begin{align}
+  &\ddot{\varphi}+\frac{g}{l}\varphi=0, \qquad \varphi(0)=\varphi_0, \qquad \dot{\varphi}(0)=0 \\
+  &\varphi(t)=\varphi_0 \cos\left(\sqrt{\frac{g}{l}}t\right)
+  \label{eq:pendelbwgl}
+\end{align}
+Die Erdbeschleunigung $g$ lässt sich aus der Periodendauer $T$ einer Schwingung ermitteln:
+\begin{equation}
+  g=\frac{4\pi^2l}{T^2}
+  \label{eq:erdbeschl}
+\end{equation}
+\section{Versuch: Federpendel}
+Ziel des Versuches ist die Bestimmung der Federkonstante $D$ auf zwei verschiedene Arten: Zuerst statisch und anschließend aus der Periodendauer einer Schwingung.
+
+Die Feder ist vertikal vor einem Maßstab aufgehängt. Ein schwarzes Plättchen an der Feder zeigt die Höhe auf dem Maßstab an. Die Feder so wird justiert, dass bei angehängter Waagschale das Plättchen auf 0 zeigt. Drei Gewichte stehen zur Verfügung und werden mit einer Waage gewogen.
+Genauso wird die Masse von Feder und Waagschale bestimmt: $m_F=\SI{70.47(1)}{g}$.
+
+Die Gewichte werden nacheinander in die Waagschale gelegt und die Auslenkung abgelesen. Dabei wird ein Spiegel zum parallaxenfreien Ablesen neben die Skala gehalten. Wir erwarten aus \cref{eq:hook} einen linearen Zusammenhang.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{c c c c} \toprule
+    Masse $m$ & \SI{49.86(1)}{g} & \SI{99.71(1)}{g} & \SI{199.46(1)}{g} \\
+    Auslenkung $x$ & \SI{3.7(2)}{cm} & \SI{7.5(2)}{cm} & \SI{15.2(2)}{cm} \\ 
+    Federkonst. $D$ & \SI{13.2(7)}{N/m} & \SI{13.0(4)}{N/m} & \SI{12.9(2)}{N/m} \\ \bottomrule
+  \end{tabular}
+  \caption{Federkonstante bestimmt aus der Auslenkung}
+\label{tab:auslenkung}
+\end{table}
+Das Ergebnis der statischen Bestimmung ergibt sich also als
+\begin{equation}
+  D_{\text{stat}}=\SI{13.0(3)}{N/m}
+  \label{eq:dstat}
+\end{equation}
+Nun wird die Feder mit angehängter Masse zusätzlich mit der Hand ausgelenkt und die Periodendauer $50T$ für 50 Schwingungen mit einer Stoppuhr gemessen. Die Federkonstante wird mithilfe von \cref{eq:federkonst} berechnet. Aus derselben Gleichung wird erwartet, dass die Schwingungsdauer mit der Wurzel der Masse steigt.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{c c c c} \toprule
+    Masse $m$ & \SI{49.86(1)}{g} & \SI{99.71(1)}{g} & \SI{199.46(1)}{g} \\
+    50 Perioden $50T$ & \SI{26.12(50)}{s} & \SI{32.66(50)}{s} & \SI{43.41(50)}{s} \\ 
+    Federkonst. $D$ & \SI{10.61(41)}{N/m} & \SI{11.40(35)}{N/m} & \SI{11.68(27)}{N/m} \\ \bottomrule
+  \end{tabular}
+  \caption{Federkonstante bestimmt aus Schwingungsperioden}
+  \label{tab:federschwingung}
+\end{table}
+Die dynamisch bestimmte Federkonstante lautet also 
+\begin{equation}
+  D_{\text{dyn}}=\SI{11.23(20)}{N/m}.
+  \label{eq:ddyn}
+\end{equation}
+\section{Versuch: Mathematisches Pendel}
+Ziel des Versuches ist die Bestimmung der Erdbeschleunigung $g$ aus der Schwingungsdauer eines Fadenpendels.
+
+Ein Faden ist an einem Ende an einer Halterung befestigt, am anderen Ende hängt eine metallische Kugel unbekannter Masse. Mit einem Maßstab wird die Pendellänge $l$ gemessen und für 3 verschiedene Pendellängen wird das Gewicht mit der Hand ausgelenkt, sodass es zur Schwingung kommt. Die Dauer von 50 Schwingungen wird mit der Stoppuhr gemessen und anschließend die Erdbeschleunigung $g$ über \cref{eq:erdbeschl} berechnet.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{c c c c} \toprule
+    Länge $l$ & \SI{33.0(3)}{cm} & \SI{53.0(3)}{cm} & \SI{81.7(3)}{cm} \\
+    50 Perioden $50T$ & \SI{57.06(50)}{s} & \SI{72.75(50)}{s} & \SI{90.53(50)}{s} \\
+    Erdbeschl. $g$ & \SI{10.0(2)}{m/s^2} & \SI{9.88(15)}{m/s^2} & \SI{9.84(11)}{m/s^2} \\ \bottomrule
+  \end{tabular}
+  \caption{Messergebnis zum Fadenpendel}
+  \label{tab:fadenpendel}
+\end{table}
+Aus dem Mittelwert ergibt sich:
+\begin{equation}
+  g=\SI{9.91(09)}{m/s^2}
+  \label{eq:gpendel}
+\end{equation}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=15 cm,
+      height=10 cm,
+      xmin=5, xmax=10,
+      ymin=1, ymax=2,
+      xlabel={Wurzel der Pendellänge $\sqrt{l}$ [\si{\sqrt{cm}}]},
+      ylabel={Periodendauer $T$ \si{s}}
+    ]
+    \addplot+[only marks, error bars/.cd, y dir=both, y fixed=0.01, x dir=both, x explicit] table[x error index=2] {fadenpendel.txt};
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Messergebnis zur Erdbeschleunigung}
+  \label{fig:fadenpendel}
+\end{figure}
+\section{Diskussion}
+\subsection{Versuch: Elastische Biegung}
+Da es sich beim Elastizitätsmodul um eine Materialgröße handelt, sollte diese unabhängig von der Art des Einspannens seien. Dies hat sich in unserer Messung nicht bestätigt:
+\begin{equation}
+  E_{1,\text{flach}}-E_{1,\text{hoch}} = \SI{2.2(8)e1}{kN/mm^2}
+  \label{eq:elastifalsch}
+\end{equation}
+Grund dafür ist, dass die Methode zur Ablesung der Durchbiegung nur eine signifikante Stelle geliefert hat, denn mit dem Auge sind Längenunterschiede $<\SI{1}{mm}$ schlecht zu erkennen. Dieser Unterschied liegt außerhalb des berecheten Fehlers, weil wie die Unsicherheiten der Eingabedaten für den \emph{gnuplot}-Fit nicht fortpflanzen können (der von gnuplot ausgegebene Fehler bezieht sich nur auf die Ungenauigkeit des Algorithmus, aber die Eingabedaten werden als exakt angenommen).
+Sinvoll ausgesagt werden kann, dass der gefühlt leichteste Stab 3 einen deutlich geringeren Elastizitätsmodul hat als der schwerste Stab 4:
+\begin{equation}
+  \Delta E_{34}=\SI{200}{kN/mm^2} - \SI{80}{kN/mm^2}=\SI{120}{kN/mm^2}
+  \label{eq:elastidiff34}
+\end{equation}
+Laut \footcite{ingenieurwissen} ist der Elastizitätsmodul für verschiedene Werkstoffe:
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l | c}
+    Stoff & Elastizitätsmodul [\si{kN/mm^2}] \\ \hline
+    Nickellegierungen & 150\ldots 222 \\
+    Gusseisen & 66\ldots 172 \\
+    Kupfer & 100 \ldots 130 \\
+    Bronze & 105 \ldots 124 \\
+    Messing & 78 \ldots 123 \\
+    Aluminiumlegierungen & 68 \ldots 82 \\
+    Magnesiumlegierungen & 42 \ldots 47
+  \end{tabular}
+  \caption{Literaturwerte für Elastizitätsmodul}
+  \label{tab:litwertelasti}
+\end{table}
+
+Stab 1 liegt im Bereich von Messing, während Stab 3 im Bereich von Aluminiumlegierungen liegt. Beides deckt sich mit der Farbe. Bei Stab 2 und 4 ist der Fehler zu hoch, als das die Werte sinnvoll verglichen werden könnten, allerdings legt die sehr ähnliche Farbe nahe, dass Stab 2 genauso wie Stab 1 aus Messing besteht, während Gewicht und Aussehen von Stab 4 auf Gusseisen hindeuten.
+Dadurch das sämtlichen Stäben ein Material, welches zu den übrigen Erscheinungsmerkmalen passt, zugeordnet werden konnte, kann man davon ausgehen, dass trotz der teilweise ungenauen Messung, Auslenkung eines Stabes, die Messung gelungen ist.
+\subsection{Torsionsschwingung mit Scheibe}
+Laut \footcite{elektrotechnik} ist der Schubmodul von verschiedenen Werkstoffen:
+
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l | c}
+    Stoff & Schubmodul $G_M$ [$10^4MPa$] \\ \hline
+    Magnesium & 1,7 \\
+    Aluminium & 2,6 \\
+    Titan & 4,5 \\
+    Kupfer & 4,6 \\
+    Nickel & 7,6 \\
+    Stahl & 8,3 \\
+    Wolfram & 16,0
+  \end{tabular}
+  \caption{Literaturwerte für Schubmodul}
+  \label{tab:litwertschub}
+\end{table}
+
+Leider wurde durch unsere Messung ein Schubmodul von $G=0,547\cdot10^4 MPa$ bestimmt. Dieser Wert liegt außerhalb der angegebenen Tabelle und liegt eher im Bereich von Plastiken. Da der Stab jedoch aus einem glänzendem Metall bestand, ist es anzunehmen, dass im Laufe der Bestimmung eine 10er-Potenz verloren gegangen ist. Der richtige Wert sollte eher bei $G_{soll}=5,47\cdot10^4 MPa$ liegen, was dann für einen Draht aus Nickel oder ähnlichem Metall spräche.
+
+\subsection{Torsionsschwingung mit Hantel}
+Bei der Bestimmung der Trägheitsmomente $J_1$ und $J_2$ wurden zwei unterschiedliche Verfahren gewählt, die beim der Bestimmung von $J_1$, dem Trägheitsmoment der Stange, noch vergleichbare Ergebnisse geliefert haben. So liegt $\Delta J_1$ bei nur $0,97gm^2$, dies entspricht gerade mal einem $0,08\%$ relativem Fehler, was ein gutes Ergebnis ist.
+Bei der Bestimmung von $J_2$ ist die ablsolute Differenz ähnlich klein, $\Delta J_2=0,089g^2$, dies ist entspricht aber einem relativen Fehler von über $200\%$, deutlich zu groß ist. 
+Bei der Bestimmung ist der Methode über das Fitten, die sehr kleinen Werte des Trägheitsmomentes der Hantelscheiben zum Verhängnis geworden.
