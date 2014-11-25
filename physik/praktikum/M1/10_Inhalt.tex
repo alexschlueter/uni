@@ -1,4 +1,5 @@
 \section{Einführung}
+\subsection{Federpendel}
 Ein \textbf{Federpendel} besteht aus einer Feder mit Federkonstante $D$, an der eine Waagschale mit einer aufgelegten Masse $m$ hängt. Wird diese aus der Ruheposition um $x$ ausgelenkt, so wirkt eine Rückstellkraft $F$ der Auslenkung entgegen. Nach dem \textbf{Hookeschen Gesetz} ist der Zusammenhang linear:
 \begin{equation}
   m\ddot{x}=F=-D x
@@ -19,7 +20,7 @@ Die Feder führt also harmonische Schwingungen aus. Aus der Periodendauer $T$ ka
   D=\frac{4\pi^2}{T^2}\left(m+\frac{m_F}{3}\right)
   \label{eq:federkonst}
 \end{equation}
-
+\subsection{Mathematisches Pendel}
 Ein \textbf{Mathematisches Pendel} ist ein Fadenpendel der Länge $l$, wobei angenommen wird, dass der Faden masselos ist, die gesamte Masse im Schwerpunkt vereinigt ist und die Bewegung reibungsfrei abläuft. Als Rückstellkraft bei einer Auslenkung um einen Winkel $\varphi$ wirkt die Schwerkraft $F_\varphi=-mg\sin\varphi\approx -mg\varphi$. Die Bewegungsgleichung und Lösung lauten dann:
 \begin{align}
   &\ddot{\varphi}+\frac{g}{l}\varphi=0, \qquad \varphi(0)=\varphi_0, \qquad \dot{\varphi}(0)=0 \\
@@ -30,6 +31,63 @@ Die Erdbeschleunigung $g$ lässt sich aus der Periodendauer $T$ einer Schwingung
 \begin{equation}
   g=\frac{4\pi^2l}{T^2}
   \label{eq:erdbeschl}
+\end{equation}
+\subsection{Gekoppeltes Pendel}
+Bei der Betrachtung des gekoppelten Pendels nimmt man zunächst einige Voraussetzungen an
+\begin{enumerate}
+\item Beide Pendel schwingen in einer Ebene
+\item Beide Pendel haben die gleiche Länge $L$, die gleiche Masse $m$ und die gleiche Eigenfrequenz
+\item Der Auslenkungswinkel $\phi$ bleibt im Laufe des Versuchs klein, weshalb man  sagen kann $sin \phi \approx \phi$
+\item Als Maß der Auslenkung wird der horizontaler Abstand $x$ des Pendels angenommen
+\end{enumerate}
+
+Unter diesen Annahmen kann man nun für das gekoppelte Pendel folgende Bewegungsgleichungen bestimmen.
+\begin{gather}
+P_1: m\ddot{x}_1= -D_0x_1-D_F(x_1-x_2)\\
+P_2: m\ddot{x}_2= -D_0x_2+D_F(x_1-x_2)
+\end{gather}
+Diese gekoppelten Gleichungen lassen sich mit Hilfe der Substitutionen $z_1=x_1-x_2$ und $z_2=x_1+x_2$ entkoppeln, und erhält die unabhängigen Gleichungen
+\begin{gather}
+\label{ent1}\ddot{z}_1+(\omega_0^2+\frac{2D_F}{m}z_1)=0\\
+\label{ent2}\ddot{z}_2+\omega_0^2z_2 = 0.
+\end{gather}
+Nun betrachtet man zwei Spezialfälle der Bewegung des gekoppelten Pendels
+\begin{enumerate}
+\item Gleichsinnige Bewegung: $x_1=x_2$ und damit $z_1=0$. So ergibt sich aus \ref{ent2}
+\begin{equation}
+\omega_{gl}=\omega_0
+\end{equation}
+\item Gegensinnige Bewegung: $x_1=-x_2$ und damit $z_2=0$. So ergibt sich aus \ref{ent1}
+\begin{equation}
+\omega_{geg}=\omega_0\sqrt{1+2D_F/D_0}
+\end{equation}
+\end{enumerate}
+Wenn man nun \ref{ent1} und \ref{ent2} mit den Anfangsbedingungen $x_1(0)=x_0$, $x_2(0)=0$ und $\dot{x}_1(0)=\dot{x}_2(0)=0$ löst, erhält man
+\begin{gather}
+x_1=x_0 cos[\frac{1}{2}(\omega_{geg}-\omega{gl})t]\cdot cos[\frac{1}{2}(\omega_{geg}+\omega{gl})t]\\
+x_2=x_0 sin[\frac{1}{2}(\omega_{geg}-\omega{gl})t]\cdot sin[\frac{1}{2}(\omega_{geg}+\omega{gl})t].
+\end{gather}
+Weiter gilt
+\begin{gather}
+\label{eq:tschnell}T=\frac{4\pi}{(\omega_{geg}+\omega_{gl})}\\
+\label{eq:tschweb}T_{schweb}=\frac{4\pi}{(\omega_{geg}-\omega_{gl})}.
+\end{gather}
+\ref{eq:tschnell} und \ref{eq:tschweb} ergibt sich aus der Überlegung, dass sich die Terme mit $(\omega_{geg}+\omega_{gl})$ schnell ändern, während sich die Terme mit $(\omega_{geg}+\omega_{gl})$ deutlich langsamer ändern und so die Schwebung charakterisieren.
+\subsubsection{Kopplungsgrad}
+Der Kopplungsgrad beschreibt das Verhältnis zwischen der Auslenkung die von außen auf ein Pendel wirkt und der Auslenkung, die das andere Pendel erfährt.
+\begin{equation}
+k=\frac{x_2}{x_1}=\frac{\omega_{geg}^2-\omega_{gl}^2}{\omega_{geg}^2+\omega_{gl}^2}=\frac{T_{gl}^2-T_{geg}^2}{T_{gl}^2+T_{geg}^2}
+\label{eq:kopplung}
+\end{equation}
+Aus \ref{eq:kopplung} folgt
+\begin{equation}
+\frac{\Delta \omega}{\omega_0}=\sqrt{\frac{1+k}{1-k}}-1
+\label{eq:frequenzspalt}
+\end{equation}
+Was durch Reihenentwicklungen gleich
+\begin{equation}
+\frac{\Delta \omega}{\omega_0}= l+\frac{1}{2}k^2+\frac{1}{2}k^3+\dots
+\label{eq:3ordnung}
 \end{equation}
 \section{Versuch: Federpendel}
 Ziel des Versuches ist die Bestimmung der Federkonstante $D$ auf zwei verschiedene Arten: Zuerst statisch und anschließend aus der Periodendauer einer Schwingung.
@@ -100,67 +158,328 @@ Aus dem Mittelwert ergibt sich:
       ylabel={Periodendauer $T$ \si{s}}
     ]
     \addplot+[only marks, error bars/.cd, y dir=both, y fixed=0.01, x dir=both, x explicit] table[x error index=2] {fadenpendel.txt};
+    \pgfplotsset{cycle list shift=-1};
+    \addplot+[mark=none, domain=5:10] {0.199*x};
     \end{axis}
   \end{tikzpicture}
   \caption{Messergebnis zur Erdbeschleunigung}
   \label{fig:fadenpendel}
 \end{figure}
+\section{Versuch: Gekoppeltes Pendel}
+
+In diesem Versuchsteil wird ein gekoppeltes Pendel betrachtet, welches aus zwei einzelnen Pendeln, die mit einer weichen Feder verbunden sind, besteht. Die gespannte Feder sorgt dafür, dass sich die beiden Pendel gegenseitig beeinflussen. Zur Messung der Perioden des Pendels wurde ein Ultraschall-Entfernungsmesser genutzt, der auf das eine Pendel ausgerichtet war. Dieses war jedoch nicht genau kalibriert, weshalb die Entfernungsmessungen im weiteren Verlauf mit einem groben Fehler behaftet sind. Dies ist jedoch nicht weiter tragisch, da nur die Schwingungsperioden in der weiteren Betrachtung wichtig sind und nicht die Amplituden bzw. ihr Wert.
+\subsection{Einzelnes Pendel}
+Als erstes wurde die Schwingungsdauer eines einzelnen Pendels, ohne weitere Koppelung, bestimmt. Dabei beträgt die Länge des Pendels $L = (1,572 \pm 0,003) m$.
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=15 cm,
+      height=10 cm,
+      xmin=0, xmax=105,
+      ymin=-0.4, ymax=0.7,
+      xlabel={Schwingungsdauer $T$ [s]},
+      ylabel={Amplitude $a$ [m]},
+    ]
+      \addplot[mark=square, only marks] table {einzelschwingung.txt};
+      
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Amplitude des einzelnen Pendels $a$ gegen die Schwingungsdauer $T_0$ }
+  \label{fig:einzelschwingung}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=15 cm,
+      height=10 cm,
+      xmin=0, xmax=10,
+      ymin=-0.4, ymax=0.7,
+      xlabel={Schwingungsdauer $T$ [s]},
+      ylabel={Amplitude $a$ [m]},
+    ]
+      \addplot[mark=square, only marks] table {einzelschwingung.txt};
+      
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Ausschnitt des Graphen \ref{fig:einzelschwingung} für die ersten $10 s$ }
+  \label{fig:durchbiegung}
+\end{figure}
+Die Schwingungsperiode $T_0$ wurde nun grafisch bestimmt.
+\begin{equation}
+ T_0=(2,5\pm 0,3)s
+\end{equation}
+\subsection{Gekoppeltes Pendel}
+Nun werden die beiden Pendel wie bereits erwähnt mit einer Feder verbunden. Dies geschieht in $l=(0,507 \pm 0,003)m$ Abstand zu den Fixpunkten der Pendel. Zunächst wurde die Messung mit $l'=(1,530 \pm 0,003)m$ durchgeführt, bei diesem Abstand kam es jedoch im weiteren Verlauf zu keiner genau bestimmbaren Schwebung, weshalb im Weiteren mit $l$ statt $l'$ gearbeitet wurde.
+
+Dieser Aufbau wird mit zwei verschiedenen Federn ,Feder 1 (silbern) und Feder 2 (kupfern), durchgeführt und es werden jeweils der Kopplungsgrad statisch und die Schwingungsperiode für eine gleichsinnige, eine gegensinnige und eine schwebende Schwingung bestimmt.
+\subsubsection{Statischer Kopplungsgrad}
+Bei diesem Versuch wird ein Pendel um $a$ ausgelenkt und die resultierende Auslenkung $a'$ des anderen Pendels bestimmt.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l | c | c | c}
+    \diagbox{Feder}{Auslenkung $a$ [cm]} & $5\pm 0,1$ & $10\pm 0,1$ & $15\pm 0,1$  \\ \hline
+    1 & ($0,2 \pm 0,1$)cm & ($0,5 \pm 0,1$)cm & ($0,8 \pm 0,1$)cm \\
+    2 & ($0,0 \pm 0,1$)cm & ($0,2 \pm 0,1$)cm & ($0,3 \pm 0,1$)cm 
+  \end{tabular}
+  \caption{Statische Bestimmung des Kopplungsgrad}
+  \label{tab:statkopplung}
+\end{table}
+Daraus ergibt sich nach \ref{eq:kopplung} ein durchschnittlicher Kopplungsgrad $k$ für die beiden Federn.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l | c | c }
+    Feder & 1 & 2 \\ \hline
+    k & $0,047$ & $0,013$
+  \end{tabular}
+  \caption{Statisch bestimmter Kopplungsgrad}
+  \label{tab:statkopplungwert}
+\end{table}
+\subsubsection{Dynamischer Kopplungsgrad}
+
+\paragraph{Gleichsinnige Schwingung}
+Das gekoppelte Pendel wird zu einer gleichsinnigen Schwingung angeregt und die Schwingungsperiode wird über den Ultraschall-Entfernungsmessung bestimmt.
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=15 cm,
+      height=10 cm,
+      xmin=0, xmax=50,
+      ymin=0, ymax=2,
+      xlabel={Schwingungsdauer $T$ [s]},
+      ylabel={Amplitude $a$ [m]},
+      legend entries={Feder 1,Feder 2}
+    ]
+      \addplot[mark=square, only marks] table {tgleichsilber2.txt};
+      \addplot[mark=*, only marks, ] table {tgleichkupfer.txt};
+      
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Amplitude des gekoppelten Pendels $a$ gegen die Schwingungsdauer $T_0$ }
+  \label{fig:gleichschwingung}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=15 cm,
+      height=10 cm,
+      xmin=0, xmax=7.5,
+      ymin=0, ymax=2,
+      xlabel={Schwingungsdauer $T$ [s]},
+      ylabel={Amplitude $a$ [m]},
+      legend entries={Feder 1,Feder 2}
+    ]
+      \addplot[mark=square, only marks] table {tgleichsilber2.txt};
+      \addplot[mark=*, only marks, ] table {tgleichkupfer.txt};
+      
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Aussschnitt von Abbildung \ref{fig:gleichschwingung} }
+  \label{fig:ausschnittgleich}
+\end{figure}
+Aus Übersichtsgründen wurde die Messung von Feder 2 um $1$ erhöht, was möglich war, da die Amplitude keine Rolle in der Messung spielt.Die Schwingungsperiode $T_{gl}$ wurde nun grafisch bestimmt.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l | c | c }
+    Feder & 1 & 2\\ \hline
+    Schwingungsperiode $T_{gl}$ [s]& $2,5\pm 0,1$ & $2,5 \pm 0,1$
+    
+  \end{tabular}
+  \caption{Schwingungsperiode bei gleichsinniger Bewegung}
+  \label{tab:tgleich}
+\end{table}
+\paragraph{Gegensinnige Schwingung}
+Das gekoppelte Pendel wird zu einer gegensinnigen Schwingung angeregt und die Schwingungsperiode wird über den Ultraschall-Entfernungsmessung bestimmt.
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=15 cm,
+      height=10 cm,
+      xmin=0, xmax=50,
+      ymin=0, ymax=2,
+      xlabel={Schwingungsdauer $T$ [s]},
+      ylabel={Amplitude $a$ [m]},
+      legend entries={Feder 1,Feder 2}
+    ]
+      \addplot[mark=square, only marks] table {tgegensilber2.txt};
+      \addplot[mark=*, only marks, ] table {tgegenkupfer.txt};
+      
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Amplitude des gekoppelten Pendels $a$ gegen die Schwingungsdauer $T_0$ }
+  \label{fig:gegenschwingung}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=15 cm,
+      height=10 cm,
+      xmin=0, xmax=7.5,
+      ymin=0, ymax=2,
+      xlabel={Schwingungsdauer $T$ [s]},
+      ylabel={Amplitude $a$ [m]},
+      legend entries={Feder 1,Feder 2}
+    ]
+      \addplot[mark=square, only marks] table {tgegensilber2.txt};
+      \addplot[mark=*, only marks, ] table {tgegenkupfer.txt};
+      
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Amplitude des gekoppelten Pendels $a$ gegen die Schwingungsdauer $T_0$ }
+  \label{fig:ausschnittgegen}
+\end{figure}
+Aus Übersichtsgründen wurde die Messung von Feder 2 um $1$ erhöht, was möglich war, da die Amplitude keine Rolle in der Messung spielt.Die Schwingungsperiode $T_{geg}$ wurde nun grafisch bestimmt.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l | c | c }
+    Feder & 1 & 2\\ \hline
+    Schwingungsperiode $T_{geg}$ [s]& $2,3\pm 0,1$ & $2,4 \pm 0,1$
+    
+  \end{tabular}
+  \caption{Schwingungsperiode bei gleichsinniger Bewegung}
+  \label{tab:tgegen}
+\end{table}
+\paragraph{Schwebung}
+Das gekoppelte Pendel wird zu einer  schwebenden Bewegung angeregt und die Schwingungsperiode wird über den Ultraschall-Entfernungsmessung bestimmt.
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=15 cm,
+      height=10 cm,
+      xmin=0, xmax=100,
+      ymin=1, ymax=2,
+      xlabel={Schwingungsdauer $T$ [s]},
+      ylabel={Amplitude $a$ [m]},
+      legend entries={Feder 2}
+    ]
+      \addplot[mark=*, only marks, ] table {tschwebekupfer2.txt};
+      
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Amplitude des gekoppelten Pendels $a$ mit Feder 2 gegen die Schwingungsdauer $T_0$ }
+  \label{fig:schwebschwingung1}
+\end{figure}
+\begin{figure}[H]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=15 cm,
+      height=10 cm,
+      xmin=0, xmax=100,
+      ymin=0, ymax=0.25,
+      xlabel={Schwingungsdauer $T$ [s]},
+      ylabel={Amplitude $a$ [m]},
+      legend entries={Feder 1}
+    ]
+      \addplot[mark=*, only marks, ] table {tschwebsilber.txt};
+      
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Amplitude des gekoppelten Pendels $a$ mit Feder 1 gegen die Schwingungsdauer $T_0$ }
+  \label{fig:schwebschwingung2}
+\end{figure}
+
+Aus Übersichtsgründen wurde die Messung von Feder 2 um $1$ erhöht, was möglich war, da die Amplitude keine Rolle in der Messung spielt.Die Schwingungsperiode $T_{schweb}$ wurde nun grafisch bestimmt.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l | c | c }
+    Feder & 1 & 2\\ \hline
+    Schwingungsperiode $T_{schweb}$ [s]& $82,2\pm 0,1$ & $86,6 \pm 0,1$
+    
+  \end{tabular}
+  \caption{Schwingungsperiode bei Schwebungsbewegung}
+  \label{tab:tschweb}
+\end{table}
+\paragraph{Berechnung von $t_{schweb}$}
+Nach \ref{eq:tschweb} gilt
+\begin{equation}
+T_{schweb}=\frac{4 \pi}{(T_{geg}^{-1}-T_{gl}^{-1})}.
+\end{equation}
+Dies führt zu
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l | c | c }
+    Feder & 1 & 2\\ \hline
+    Schwingungsperiode $T_{schweb}$ [s]& $361,28 \pm 5$ & $753,98 \pm 5$
+    
+  \end{tabular}
+  \caption{Berechnete Schwebungsdauer }
+  \label{tab:tschwebrech}
+\end{table}
+\paragraph{Berechnung des Kopplungsgrad}
+Mit der Formel \ref{eq:kopplung} wird nun der Kopplungsgrad für beide Federn aus bestimmten Schwingungsperioden bestimmt.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l | c | c }
+    Feder & 1 & 2\\ \hline
+    Kopplungsgrad $k$ & $0,083$ & $0,04$
+    
+  \end{tabular}
+  \caption{Kopplungsgrad  der einzelnen Federn }
+  \label{tab:kopllungsgrad}
+\end{table}
+\paragraph{Berechnung der Frequenzaufspaltung}
+Wenn man Formel \ref{eq:kopplung} in \ref{eq:frequenzspalt} einsetzt, enthält man
+\begin{equation}
+\frac{\Delta \omega}{\omega_0}=\sqrt{\frac{1+\frac{T_{gl}^2-T_{geg}^2}{T_{gl}^2+T_{geg}^2}}{1-\frac{T_{gl}^2-T_{geg}^2}{T_{gl}^2+T_{geg}^2}}}.
+\end{equation}
+Dies ergibt für die einzelnen Federn
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l | c | c }
+    Feder & 1 & 2\\ \hline
+    Frequenzaufspaltung $\frac{\Delta \omega}{\omega_0}$& $0,087$ & $0,042$
+    
+  \end{tabular}
+  \caption{Frequenzspaltung der einzelnen Federn }
+  \label{tab:frequenzspalt}
+\end{table}
+
+Alternativ kann die Frequenzaufspaltung mit der Formel \ref{eq:3ordnung} bestimmen. Dies führt für die beiden Federn zu folgenden Ergebnissen.
+\begin{table}[H]
+  \centering
+  \begin{tabular}{l | c | c }
+    Feder & 1 & 2\\ \hline
+    Frequenzaufspaltung $\frac{\Delta \omega}{\omega_0}$& $0,087$ & $0,042$
+    
+  \end{tabular}
+  \caption{Frequenzspaltung der einzelnen Federn }
+  \label{tab:frequenzspaltalt}
+\end{table}
 \section{Diskussion}
-\subsection{Versuch: Elastische Biegung}
-Da es sich beim Elastizitätsmodul um eine Materialgröße handelt, sollte diese unabhängig von der Art des Einspannens seien. Dies hat sich in unserer Messung nicht bestätigt:
+\subsection{Federpendel}
+Die Abweichung zwischen der statischen und der dynamischen Methode zur Bestimmung der Federkonstante beträgt
 \begin{equation}
-  E_{1,\text{flach}}-E_{1,\text{hoch}} = \SI{2.2(8)e1}{kN/mm^2}
-  \label{eq:elastifalsch}
+  \Delta D=\SI{13.0}{N/m}-\SI{11.23}{N/m}=\SI{1.77}{N/m}
+  \label{eq:ddiff}
 \end{equation}
-Grund dafür ist, dass die Methode zur Ablesung der Durchbiegung nur eine signifikante Stelle geliefert hat, denn mit dem Auge sind Längenunterschiede $<\SI{1}{mm}$ schlecht zu erkennen. Dieser Unterschied liegt außerhalb des berecheten Fehlers, weil wie die Unsicherheiten der Eingabedaten für den \emph{gnuplot}-Fit nicht fortpflanzen können (der von gnuplot ausgegebene Fehler bezieht sich nur auf die Ungenauigkeit des Algorithmus, aber die Eingabedaten werden als exakt angenommen).
-Sinvoll ausgesagt werden kann, dass der gefühlt leichteste Stab 3 einen deutlich geringeren Elastizitätsmodul hat als der schwerste Stab 4:
+Diese Abweichung liegt sogar außerhalb des Fehlers und der Wert für jede der drei dynamischen Messungen mit verschiedenen Massen weicht nach unten verglichen mit dem statischen Wert ab. Dies deutet auf einen systematischen Messfehler hin. Möglicherweise ist die Annahme aus \cref{eq:hookreal}, dass die träge Masse des Systems $m+m_F/3$ beträgt, nicht haltbar. Um eine größere Übereinstimmung zwischen dynamischem und statischem Wert zu erreichen, müsste statt $m_F/3$ folgendes Verhältnis gewählt werden (Beispielrechnung bei der längsten Schwingung):
 \begin{equation}
-  \Delta E_{34}=\SI{200}{kN/mm^2} - \SI{80}{kN/mm^2}=\SI{120}{kN/mm^2}
-  \label{eq:elastidiff34}
+  a=m_F^{-1}\cdot\left(\frac{\SI{13.0}{N/m}\cdot (\SI{43.41}{s}/50)^2}{4\pi^2}-\SI{199.46}{g}\right)=1.445
+  \label{eq:korrektur}
 \end{equation}
-Laut \footcite{ingenieurwissen} ist der Elastizitätsmodul für verschiedene Werkstoffe:
+\subsection{Mathematisches Pendel}
+Der gemessene Wert für die Erdbeschleunigung beträgt $g=\SI{9.91(09)}{m/s^2}$. Laut dem National Institute of Standards and Technology lautet der Vergleichswert $g_{lit}=\SI{9.807}{m/s^2}$ Die relative Abweichung beträgt zwar nur \SI{1.05}{\percent}, liegt jedoch außerhalb des Fehlers. Auch hier liegt wieder jede der drei Messungen über dem Literaturwert. Es fällt aber auf, dass die Messungen für längere Schwingungsdauern näher am erwarteten Wert liegen. Möglicherweise ist die Reaktionszeit beim Zeitstoppen höher als geschätzt, sodass der Fehler in Wirklichkeit größer ist. 
+Eine weitere Fehlerquelle ist, dass der Literaturwert sich auf Meereshöhe bezieht, während der erste Stock des Physikgebäudes auf ca. \SI{80}{m} über dem Meeresspiegel liegt. Dies erklärt jedoch nur einen kleinen Anteil der Abweichung.
 
-\begin{table}[H]
-  \centering
-  \begin{tabular}{l | c}
-    Stoff & Elastizitätsmodul [\si{kN/mm^2}] \\ \hline
-    Nickellegierungen & 150\ldots 222 \\
-    Gusseisen & 66\ldots 172 \\
-    Kupfer & 100 \ldots 130 \\
-    Bronze & 105 \ldots 124 \\
-    Messing & 78 \ldots 123 \\
-    Aluminiumlegierungen & 68 \ldots 82 \\
-    Magnesiumlegierungen & 42 \ldots 47
-  \end{tabular}
-  \caption{Literaturwerte für Elastizitätsmodul}
-  \label{tab:litwertelasti}
-\end{table}
+\subsection{Gekoppeltes Pendel}
+Beim Vergleich der berechneten Schwebungsdauer $T_S$ mit der gemessenen Dauer fällt ein deutlich Unterschied zwischen den Werten auf. So ist für Feder 1 der berechnete Wert fast neun ($8,79$) mal so groß und bei Feder 2 sogar $17,41$ mal so groß. Diese Unterschiede sind so drastisch, dass man davon ausgehen muss, dass im Laufe des Versuchs ein systematischer Fehler begangen wurde. Dies ist jedoch nur mit weiteren Messungen zu bestätigen.
 
-Stab 1 liegt im Bereich von Messing, während Stab 3 im Bereich von Aluminiumlegierungen liegt. Beides deckt sich mit der Farbe. Bei Stab 2 und 4 ist der Fehler zu hoch, als das die Werte sinnvoll verglichen werden könnten, allerdings legt die sehr ähnliche Farbe nahe, dass Stab 2 genauso wie Stab 1 aus Messing besteht, während Gewicht und Aussehen von Stab 4 auf Gusseisen hindeuten.
-Dadurch das sämtlichen Stäben ein Material, welches zu den übrigen Erscheinungsmerkmalen passt, zugeordnet werden konnte, kann man davon ausgehen, dass trotz der teilweise ungenauen Messung, Auslenkung eines Stabes, die Messung gelungen ist.
-\subsection{Torsionsschwingung mit Scheibe}
-Laut \footcite{elektrotechnik} ist der Schubmodul von verschiedenen Werkstoffen:
+Bei dem Vergleich der beiden Kopplungsgrade für die einzelnen Federn ist auch ein großer Unterschied festzustellen, so sind die dynamisch bestimmten Werte bei beiden Federn mehr als doppelt so groß. Dies ist darauf zurückzuführen, dass bei der statischen Bestimmung zu einer Verformung der Pendelstangen kam, was den Wert besonders bei so kleinen Werte deutlich verfälscht.
 
-
-\begin{table}[H]
-  \centering
-  \begin{tabular}{l | c}
-    Stoff & Schubmodul $G_M$ [$10^4MPa$] \\ \hline
-    Magnesium & 1,7 \\
-    Aluminium & 2,6 \\
-    Titan & 4,5 \\
-    Kupfer & 4,6 \\
-    Nickel & 7,6 \\
-    Stahl & 8,3 \\
-    Wolfram & 16,0
-  \end{tabular}
-  \caption{Literaturwerte für Schubmodul}
-  \label{tab:litwertschub}
-\end{table}
-
-Leider wurde durch unsere Messung ein Schubmodul von $G=0,547\cdot10^4 MPa$ bestimmt. Dieser Wert liegt außerhalb der angegebenen Tabelle und liegt eher im Bereich von Plastiken. Da der Stab jedoch aus einem glänzendem Metall bestand, ist es anzunehmen, dass im Laufe der Bestimmung eine 10er-Potenz verloren gegangen ist. Der richtige Wert sollte eher bei $G_{soll}=5,47\cdot10^4 MPa$ liegen, was dann für einen Draht aus Nickel oder ähnlichem Metall spräche.
-
-\subsection{Torsionsschwingung mit Hantel}
-Bei der Bestimmung der Trägheitsmomente $J_1$ und $J_2$ wurden zwei unterschiedliche Verfahren gewählt, die beim der Bestimmung von $J_1$, dem Trägheitsmoment der Stange, noch vergleichbare Ergebnisse geliefert haben. So liegt $\Delta J_1$ bei nur $0,97gm^2$, dies entspricht gerade mal einem $0,08\%$ relativem Fehler, was ein gutes Ergebnis ist.
-Bei der Bestimmung von $J_2$ ist die ablsolute Differenz ähnlich klein, $\Delta J_2=0,089g^2$, dies ist entspricht aber einem relativen Fehler von über $200\%$, deutlich zu groß ist. 
-Bei der Bestimmung ist der Methode über das Fitten, die sehr kleinen Werte des Trägheitsmomentes der Hantelscheiben zum Verhängnis geworden.
+Der Vergleich der auf unterschiedlich bestimmten Frequenzaufspaltungen, nach den Werten aus Tabelle \ref{tab:frequenzspalt} und \ref{tab:frequenzspaltalt}, zeigt deutlich, dass die gelieferte Näherung \ref{eq:3ordnung} geeignet ist um die Frequenzaufspaltung zu bestimmen. So unterscheiden sich die beiden Werte nur außerhalb der signifikanten Stellen, man kann also sagen, dass die Werte gleich sind. 
+\section{Doppelpendel}
+Das Doppelpendel besteht aus einem physikalischen Pendel, an dessen freien Ende ein Gelenk mit einem zweiten physikalischen Pendel angebracht ist. Es wurden folgende Beobachtungen gemacht:
+\begin{itemize}
+  \item Die Schwingung sieht chaotisch aus, d.h. es scheint unmöglich, durch naives Anschauen vorherzusagen, wie sich die Pendel als nächstes bewegen werden.
+  \item Auf längere Zeit nimmt die Schwingungsamplitude ab und das Pendel kommt schließlich zum Stillstand, die Schwingung ist also gedämpft. Dies ist auf Luftreibung und die Reibung im Kugellager zurückzuführen.
+  \item Bei kleinen Auslenkungen verhält sich das Pendel weniger chaotisch: wird das obere Pendel leicht ausgelenkt und das untere gar nicht, so schwingt das obere normal, aber das untere schlägt ruckartig an den Amplitudenmaxima des oberen aus.
+    Wird dagegen das untere Pendel leicht ausgelenkt und das obere gar nicht, so schwingt das obere ruckartig und das untere normal.
+\end{itemize}
