@@ -1,0 +1,3 @@
+omega = 0.547925, Statistischer Fehler: 0.000000
+phi_0 = 13.418758, Statistischer Fehler: 0.003178
+gamma = 0.086568, Statistischer Fehler: 0.000000
